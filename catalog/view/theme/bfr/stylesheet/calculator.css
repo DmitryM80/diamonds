@@ -1,0 +1,67 @@
+.main-wrapper {
+    padding: 20px;
+    user-select: none;
+}
+.carats {
+    width: 250px;
+    text-align: center;
+    height: 90px;
+    overflow: hidden;
+}
+.numbers-holder {
+    position: relative;
+    top: 0px;
+    transform: translateY(0);
+    float: left;
+    width: 50px;
+    transition: translate 0.3s ease-in;
+}
+.qty-holder, .results-holder {
+    position: relative;
+    top: 0px;
+    transform: translateY(0);
+    transition: translate 0.3s ease-in-out;
+    float: left;
+    width: 50px;
+}
+.results-holder {
+    width: 100px;
+    transition: transform 0.8s ease-in;
+}
+.carat, .qty, .result {
+    cursor: grab;
+}
+
+.current {
+    color: rgb(56, 187, 56);
+}
+ 
+.carat-column .numb-list, .quantity-column .numb-list, .price-column .numb-list {
+    height: 152px;
+    overflow: hidden;
+}
+
+.price-column .numb-list {
+    width: 170px;
+    margin-left: -20px;
+}
+
+@media(max-width: 767px) {
+    .carat-column .numb-list, .quantity-column .numb-list, .price-column .numb-list {
+        height: 72px;
+        overflow: hidden;
+    }
+
+    .price-column .numb-list {
+        width: auto;
+        margin-left: 0;
+    }
+}
+
+
+.cost-result {
+    transition: transform 0.5s ease-in;
+}
+.search-calc-box .recomend-buy {
+    width: 70px;
+}

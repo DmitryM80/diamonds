@@ -1,0 +1,180 @@
+<footer>
+  
+</footer>
+{#<div id="footerLine">
+	<div class="limiter">
+		<div class="footer-column">
+			<div id="flushFooterCart">
+				<!--'start_frame_cache_T0kNhm'-->
+    <div class="item">
+        <!-- <a href="{{ cart_href }}" class="cart"><span class="icon"></span>Корзина<span class="mark">{{ cart_items_qty }}</span></a> -->
+    </div>
+    <!-- <div class="item">
+        <a class="compare"><span class="icon"></span>Сравнение<span class="mark">0</span></a>
+    </div> -->
+<!--'end_frame_cache_T0kNhm'-->
+	<!-- <div class="item">
+			<a id="btnFavoritePopup_bot" class="wishlist" title="Избранные товары">
+		<span class="icon"></span>
+		Избранное
+		<span id="textCountFavorite_bot" class="mark disabled">0</span>
+	</a>
+	</div> -->
+            </div>
+        </div>
+        <div class="footer-column">
+            <div class="item">
+				    <a href="tel:79259258250" class="telephone phoneCallTrack phone-msk" id="tel">+7 925 925-82-50</a>
+            </div>
+            <div class="item">
+				<a href="mailto:" class="email">info@xxx.ru</a>            </div>
+            <div class="item">
+                <a href="javascript:void(0)" class="callback"><span class="icon"></span> Обратная связь</a>
+            </div>
+        </div>
+    </div>
+	<div id="scroll-to-top" style="display:none"></div>
+    
+</div> #}
+<div id="scroll-to-top" style="display:none"></div>
+
+<div class="feedback-icon" data-toggle="modal" data-target="#feedback-list"></div>
+<a class="phone-call-icon-anchor" href="tel:79259258250"><div class="phone-call-icon"></div></a>
+
+<div id="feedback-list" class="modal fade checkout-result" role="dialog">
+    <div class="modal-dialog modal-dialog-centered"> 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Как вам удобнее с нами связаться?</h4>
+          <ul class="feedback-list">
+              <!-- <li><a href="https://vk.com/igor_galaev">ВКонтакте</a></li> -->
+              <li><a href="mailto:info@bestfriends.ru">Email</a></li>
+              <li><a href="">Facebook Messenger</a></li>
+              <li><a href="">WhatsApp</a></li>
+              <li><a href="">Telegram</a></li>
+              <li><a href="">Viber</a></li>
+              <li><a href="tel:79259258250">Позвонить +7 925 925-82-50</a></li>
+          </ul>
+          <button class="main-btn" data-dismiss="modal">Отмена</button>
+      </div> 
+      </div> 
+    </div>
+</div>
+
+
+<div id="wishlist-added" class="modal fade checkout-result" role="dialog">
+    <div class="modal-dialog modal-dialog-centered"> 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <!-- <h4 class="modal-title">Как вам удобнее с нами связаться?</h4> -->
+          <p class="wishlist-message">Добавлено в избранное</p>
+          <button class="main-btn" data-dismiss="modal">ОК</button>
+      </div> 
+      </div> 
+    </div>
+</div>
+
+<!-- <script src="//code.jivosite.com/widget/MJT2ZSk9ll" async></script> -->
+
+
+  <!-- Add to cart Modal -->
+  <div id="add-to-checkout" class="modal fade add-to-checkout" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Контактные данные</h4>
+          <div class="checkout-contact-form">
+            <form action="" id="contact-form">
+              <div class="form-group">
+                <label for="user-name">Ваше имя
+                </label>
+                <input id="user-name" type="text" name="user-name">
+              </div>
+              {# <div class="form-group">
+                <label for="user-mail">Email
+                </label>
+                <input id="user-mail" type="text" name="user-mail">
+              </div> #}
+              <div class="form-group">
+                <label for="user-tel">Телефон
+                </label>
+                <input id="user-tel" type="text" name="user-tel" placeholder="+7(XXX) XXX-XX-XX">
+              </div>
+              <div class="form-group">
+                <label for="user-comment">Комментарий для менеджера
+                </label> 
+                <textarea id="user-comment" name="user-comment" rows="1"></textarea>
+              </div>
+              <label class="container-check"  for="iagree-check">Я согласен на обработку персональных данных.*
+                <input type="checkbox" checked="checked"  id="iagree-check">
+                <span class="checkmark"></span>
+              </label>
+              <button type="submit" class="main-btn" data-toggle="modal" data-target="#add-to-checkout">Отправить </button>
+            </form>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <!-- result checkout -->
+  <div id="checkout-result" class="modal fade checkout-result" role="dialog">
+    <div class="modal-dialog modal-dialog-centered"> 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Сообщение отправлено</h4>
+          <div class="checkout-result">Ваше сообщение успешно отправлено. В ближайшее время с Вами свяжется наш специалист.</div>
+          <a href="{{ continue }}" class="main-btn">Закрыть окно</a>
+      </div> 
+      </div> 
+    </div>
+  </div>
+
+
+  <!-- Пустые поля -->
+  <div id="empty-fields" class="modal fade empty-fields-message" role="dialog">
+    <div class="modal-dialog modal-dialog-centered"> 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Сообщение не отправлено</h4>
+          <div class="empty-fields-message-text">Заполните все поля пожалуйста.</div>
+          <button class="main-btn" data-dismiss="modal">Закрыть</button>
+      </div> 
+      </div> 
+    </div>
+  </div>
+
+
+
+{#% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %#}
+
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.js"></script>
+{# <script src="catalog/view/theme/bfr/javascript/calculator.js?v25022121" type="text/javascript"></script> #}
+<script src="catalog/view/theme/bfr/javascript/common.js?v03032102" type="text/javascript"></script>
+</body></html>

@@ -1,0 +1,396 @@
+{{ header }}
+
+
+  <div class="main-nav-tas">
+    <div class="nav main-tabs nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span>Купить лот</span></a>
+      <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span>Купить брилиант</span></a> 
+    </div>
+  </div>
+  <div class="container-fluid product-container">  
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2 class="page-title"></h2>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                <div class="page-title-row justify-content-start">
+                  <h2 class="page-back-link"><a href="{{ home_link }}">< ВЕРНУТЬСЯ К ВЫБОРУ</a></h2> 
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"> 
+              <div class="card product-card  product-card-full p-0">
+                <div class="col-sm-6 col-img p-0">
+                  <div class="slider-main">
+                    {# <div>
+                      <img src="{{ thumb }}" alt="">
+                    </div> #}
+
+                    {% for image in images %}
+                      <div>
+                        <img src="{{ image.thumb }}" alt="{{ heading_title }}">
+                      </div>
+                    {% endfor %}
+
+                    {# <div>
+                      <img src="img/product.png" alt="">
+                    </div>
+                    <div>
+                      <img src="img/product.png" alt="">
+                    </div>
+                    <div>
+                      <img src="img/product.png" alt="">
+                    </div> #}
+                  </div>
+                  <div class="slider-nav">
+
+                    {% for image in images %}
+                      <div class="nav-pic">
+                        <img src="{{ image.thumb }}" alt="{{ heading_title }}">
+                      </div>
+                    {% endfor %}
+
+                    {# <div class="nav-pic">
+                      <img src="img/product.png" alt="">
+                    </div>
+                    <div class="nav-pic">
+                      <img src="img/product.png" alt="">
+                    </div>
+                    <div class="nav-pic">
+                      <img src="img/product.png" alt="">
+                    </div> #}
+                  </div>
+                </div>
+                <div class="col-sm-6 col-info">
+                  <div class="head-panel">
+                    <div class="product-title">
+                      <a href="{{ href }}">{{ heading_title }}</a>
+                    </div>
+                    <div class="like-btn"><a href=""><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></a></div>
+                  </div>
+                  <div class="card-body info-panel d-flex justify-content-beetwen"> 
+                    <div class="col-6 p-0">
+
+                      {% for attribute_group in attribute_groups %}
+                        {% for attribute in attribute_group.attribute %}
+                        {% if attribute.attribute_id == 14 or attribute.attribute_id == 15 %}
+                          <div class="info-item"><span class="info-item-title">{{ attribute.name }}: </span>{{ attribute.text }}</div>
+                          {% endif %}
+                        {% endfor %}
+                      {% endfor %}
+                      {# <div class="info-item"><span class="info-item-title">Цвет: </span>D</div>
+                      <div class="info-item"><span class="info-item-title">Чистота: </span>IF</div>   #}
+                      <div class="info-item"><span class="info-item-title">Артикул: </span>{{ model }}</div>
+                    </div>
+                    <div class="col-6 p-0">
+                      <div class="price-panel"><span class="price-item-product">{{ price | number_format(0, ',', ' ') }} руб</span></div> 
+                      {# <a href="" class="main-btn" data-toggle="modal"  onclick="cart.add('{{ product_id }}')" data-target="#add-to-cart-modal">ВЫБРАТЬ</a> #}
+                      <button class="main-btn" onclick="cart.add('{{ product_id }}')">ВЫБРАТЬ</button>
+                    </div>
+                  </div>
+                  <div class="product-description">
+                    <h3>Описание</h3>
+                    <p>Этот круглый бриллиант 2.15 карат имеет отличные характеристики. Подойдет как для создания уникального украшения так и в качестве инвестиции. Прошел сертификацию GIA.</p>
+                  </div>
+                  <div class="product-share-row">
+                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/facebook-app-logo.svg" alt="" class="img-svg"></a>
+                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/telegram.svg" alt="" class="img-svg"></a>
+                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/whatsapp.svg" alt="" class="img-svg"></a>
+                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/twitter.svg" alt="" class="img-svg"></a>
+                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/email.svg" alt="" class="img-svg"></a>
+                  </div>
+                </div> 
+              </div> 
+            </div> 
+          </div>  
+          <div class="row"> 
+            <div class="col-md-12"> 
+              <div class="about-product">
+                <h3>Узнайте о своем бриллианте</h3>
+                <div class="panel-group" id="accordion">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="collapsed">
+                        Карат 2.15 <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
+                      </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat.</div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
+                        Цвет D <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
+                      </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat.</div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed">
+                        Чистота IF <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
+                      </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat.</div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="collapsed">
+                        Огранка <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
+                      </h4>
+                    </div>
+                    <div id="collapse4" class="panel-collapse collapse">
+                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>  
+        </div>
+      </div> 
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {# <div class="main-nav-tas">
+    <div class="nav main-tabs nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span>Купить лот</span></a>
+      <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span>Купить брилиант</span></a> 
+    </div>
+  </div> #}
+
+  {# <div class="container-fluid content-container">  
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2 class="page-title"></h2>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                <div class="page-title-row">
+                  
+                  <a href="{{ home_link }}#nav-profile"><h2 class="product-page page-title">&larr; Вернуться к выбору</h2></a>                  
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="product-page-product col-md-6"> 
+              <div class="product-page card product-card p-0">
+                <div class="col-img p-0">
+                  <img src="{{ thumb }}" alt="{{ heading_title }}">
+                </div>
+                {% if images %}
+                  <div class="product-page all-images">
+                    {% for image in images %}
+                      <a href="{{ image.popup }}"><img src="{{ image.thumb }}" alt="{{ heading_title }}"></a>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <div class="col-info">
+                  <div class="head-panel">
+                    <div class="product-page product-title">
+                      <h6>{{ heading_title }}</h6>
+                    </div>
+                  </div>
+                  <div class="product-page card-body info-panel">
+                    <div class="product-page info-item"><span class="info-item-title">Артикул: </span>{{ model }}</div>
+                    {% for attribute_group in attribute_groups %}
+                      {% for attribute in attribute_group.attribute %}
+                        {% if attribute.attribute_id == 14 or attribute.attribute_id == 15 %}
+                          <div class="product-page info-item"><span class="info-item-title">{{ attribute.name }}: </span>{{ attribute.text }}</div>
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </div>
+                  <div class="product-page price-panel"><span class="price-item-product">{{ price | number_format(0, ',', ' ') }} руб</span>
+                    
+                    <button class="product-page main-btn" onclick="cart.add('{{ product_id }}')">Оформить заказ</button>
+                  </div>
+                </div> 
+                <div class="col-info">
+                  <h6 class="product-descr-title">Описание</h6>
+                  <p class="product-descr-text">{{ description | striptags }}</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>  
+
+          <div class="row">
+            <div class="product-page diamond-details col-md-6 text-center mb-5">
+              <button class="test" id="test" data-toggle="modal" data-target="#diamondModal">Test</button>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="product-page diamond-details col-md-6">
+              <div class="product-page about-diamond">
+                <p class="title-know-your-diamond">Узнайте о своем бриллианте</p>
+                {% for attribute_group in attribute_groups %}
+                  {% for attribute in attribute_group.attribute %}
+                    <p class="diamond-params">{{ attribute.name }} {{ attribute.text }}</p>
+                  {% endfor %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div> 
+    </div>
+  </div> #}
+
+<!-- Add to cart Modal -->
+<div id="add-to-cart-modal" class="modal fade add-to-cart-modal" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Позиция добавленна в заказ</h4>
+              <div class="card product-card p-0">
+                <div class="col-6 col-img p-0">
+                  <img src="{{ thumb }}" alt="{{ heading_title }}">
+                </div>
+                <div class="col-6 col-info">
+                  <div class="head-panel">
+                    <div class="product-title">
+                      <a href="{{ href }}">{{ heading_title }}</a>
+                    </div> 
+                  </div>
+                  <div class="card-body info-panel">
+                    <div class="info-item"><span class="info-item-title">Артикул: </span>{{ model }}</div>
+
+                    {% for attribute in attribute_groups.0.attribute %}
+                      {# {% if attribute.attribute_id == 14 or attribute.attribute_id == 15 %} #}
+                        <div class="info-item"><span class="info-item-title">{{ attribute.name }}: </span>{{ attribute.text }}</div>
+                         
+                      {# {% endif %} #}
+                    {% endfor %}
+
+                    {# <div class="info-item"><span class="info-item-title">Карат: </span>3.2</div>
+                    <div class="info-item"><span class="info-item-title">Цвет: </span>D</div>
+                    <div class="info-item"><span class="info-item-title">Чистота: </span>IF</div>  #}
+
+                  </div>
+                  <div class="price-panel"><span class="info-item-title">Цена: </span><span class="price-item-product">{{ price | number_format(0, ',', ' ') }} руб</span></div>  
+                </div> 
+              </div>
+      </div>
+      <div class="modal-footer"> 
+        <a href="#"  data-dismiss="modal" class="trans-btn">Продолжить покупки</a>
+        <a href="{{ cart_link }}" class="main-btn confirm-order">Оформить заказ</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+{# <div class="modal fade" id="diamondModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Позиция добавлена в заказ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="col-md-6 p-0"> 
+          <div class="product-card">
+            <div class="col-6 col-img p-0">
+              <img src="{{ thumb }}" alt="{{ heading_title }}">
+            </div>
+            <div class="col-6 col-info">
+              <div class="head-panel">
+                <div class="product-title">
+                  <a href="{{ href }}">{{ heading_title }}</a>
+                </div>
+              </div>
+              <div class="card-body info-panel">
+                <div class="info-item"><span class="info-item-title">Артикул: </span>{{ model }}</div>
+
+                {% for attribute in attribute_groups.0.attribute %}
+                  {% if attribute.attribute_id == 14 or attribute.attribute_id == 15 %}
+                    <div class="info-item"><span class="info-item-title">{{ attribute.name }}: </span>{{ attribute.text }}</div>
+                  {% endif %}
+                {% endfor %}
+                <br>
+              <div class="price-panel"><span class="info-item-title">Цена: </span><span class="price-item-product">{{ price | number_format(0, ',', ' ') }} руб</span></div>
+              
+            </div> 
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <div class="modal-buttons-wrapper">
+          <a href="{{ home_link }}" class="product-modal-continue-btn" data-dismiss="modal">Продолжить покупки</a>
+          <a href="{{ cart_link }}" class="main-btn">Оформить заказ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> #}
+{{ footer }} 

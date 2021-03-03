@@ -1,0 +1,38 @@
+{{ header }}
+
+    <div class="main-nav-tas">
+        <div class="nav main-tabs nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" href="{{ continue }}#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><span>Купить лот</span></a>
+            <a class="nav-item nav-link" id="nav-profile-tab" href="{{ continue }}#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span>Купить брилиант</span></a> 
+        </div>
+    </div>
+
+    <div class="container-fluid content-container single-page-container">   
+        <div class="container">
+            <div class="row"> 
+                <div class="col content-col info-col">
+                    <div class="page-title-row">
+                        <h2 class="page-title empty-cart-title">{{ heading_title }}</h2>
+                    </div>
+                    <p class="empty-cart-text">Вы пока не выбрали бриллианты</p> 
+
+                    <a href="{{ continue }}" class="main-btn empty-cart-button">ВЫБРАТЬ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{#<div id="error-not-found" class="container">
+
+
+
+    <h1>{{ heading_title }}</h1>
+      <p>{{ text_error }}</p>
+      <div class="buttons clearfix">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">Выбрать</a></div>
+      </div>
+</div> #}
+
+
+{{ footer }}
