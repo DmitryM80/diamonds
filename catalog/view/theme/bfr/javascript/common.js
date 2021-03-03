@@ -24,6 +24,7 @@ $(function() {
 		infinite: true,
 	});
 
+	// бегущая строка
 	$('.running-string').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -70,86 +71,6 @@ $(function() {
 			$('#empty-fields').modal();
 		}
 	});
-
-	// калькулятор
-	var premiumDiv = `<div class="cost-result">
-	<span class="min-vis lot-price"><br></span>
-	<span class="now-vis lot-price">138 900</span>
-	<span class="max-vis lot-price">228 150</span>
-	<span class="max-vis lot-price">336 400</span>
-	<span class="max-vis lot-price">643 500</span>
-	<span class="max-vis lot-price">1 140 750</span>
-	
-	<span class="now-vis lot-price">277 899</span>
-	<span class="max-vis lot-price">456 300</span>
-	<span class="max-vis lot-price">672 800</span>
-	<span class="max-vis lot-price">1 287 000</span>
-	<span class="max-vis lot-price">2 281 500</span>
-	
-	<span class="now-vis lot-price">416 700</span>
-	<span class="max-vis lot-price">684 450</span>
-	<span class="max-vis lot-price">1 009 200</span>
-	<span class="max-vis lot-price">1 930 500</span>
-	<span class="max-vis lot-price">3 422 250</span>
-	
-	<span class="now-vis lot-price">555 600</span>
-	<span class="max-vis lot-price">912 600</span>
-	<span class="max-vis lot-price">1 349 600</span>
-	<span class="max-vis lot-price">2 574 000</span>
-	<span class="max-vis lot-price">4 563 000</span>
-	
-	<span class="now-vis lot-price">694 500</span>
-	<span class="max-vis lot-price">1 140 750</span>
-	<span class="max-vis lot-price">1 682 000</span>
-	<span class="max-vis lot-price">3 217 500</span>
-	<span class="max-vis lot-price">5 703 750</span>
-  </div>`;
-	var collectionDiv = `<div class="cost-result">
-	<span class="min-vis lot-price"><br></span>
-	<span class="now-vis lot-price">159 500</span>
-	<span class="max-vis lot-price">253 500</span>
-	<span class="max-vis lot-price">377 800</span>
-	<span class="max-vis lot-price">731 250</span>
-	<span class="max-vis lot-price">1 140 750</span>
-	
-	<span class="now-vis lot-price">318 000</span>
-	<span class="max-vis lot-price">507 000</span>
-	<span class="max-vis lot-price">755 600</span>
-	<span class="max-vis lot-price">1 462 500</span>
-	<span class="max-vis lot-price">2 281 500</span>
-	
-	<span class="now-vis lot-price">477 000</span>
-	<span class="max-vis lot-price">760 500</span>
-	<span class="max-vis lot-price">1 133 400</span>
-	<span class="max-vis lot-price">2 193 750</span>
-	<span class="max-vis lot-price">3 422 250</span>
-	
-	<span class="now-vis lot-price">636 000</span>
-	<span class="max-vis lot-price">1 014 000</span>
-	<span class="max-vis lot-price">1 511 200</span>
-	<span class="max-vis lot-price">2 925 000</span>
-	<span class="max-vis lot-price">4 563 000</span>
-	
-	<span class="now-vis lot-price">795 000</span>
-	<span class="max-vis lot-price">1 267 500</span>
-	<span class="max-vis lot-price">1 889 000</span>
-	<span class="max-vis lot-price">3 656 250</span>
-	<span class="max-vis lot-price">5 703 750</span>
-  </div>`;
-
-	// console.log($('.search-product-box :radio[name="premium"]'));
-	// $('.search-product-box :radio').on('change', function(){
-	// 	if ($(this).val() == 'premium') {
-	// 		// $('#cost-result-block').empty();
-	// 		// $('#cost-result-block').append(premiumDiv);
-	// 		$('#cost-result-block').html(premiumDiv);
-	// 	} else {
-	// 		// $('#cost-result-block').empty();
-	// 		// $('#cost-result-block').append(collectionDiv);
-	// 	}
-	// });
-	// калькулятор
-
 });
 
 

@@ -266,6 +266,15 @@ button.main-btn.wishlist-incart {
 }
 /* бегущая строка */
 
+/* Диаметр бриллианта */
+.diamond-diameter {
+  position: absolute;
+  left: 7%;
+  bottom: 32%;
+  font-size: 13px;
+}
+/* Диаметр бриллианта */
+
 
 a {
   text-transform: uppercase;

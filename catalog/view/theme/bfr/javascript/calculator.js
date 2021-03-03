@@ -4,11 +4,22 @@ const   carats = Array.from(document.querySelectorAll('.carat')),
         qty = Array.from(document.querySelectorAll('.qty')),
         resHolder = document.querySelector('.cost-result'),
         prices = Array.from(document.querySelectorAll('.lot-price')),
-        caratsResultWindow = document.querySelector('.recomend-buy');
+        caratsResultWindow = document.querySelector('.recomend-buy'),
+        diametersValue = document.getElementById('diameter-value'),
+        diameters = [3.4, 3.8, 4.1, 4.4, 4.6];
 
-        console.log(prices);
+        
 
 const heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
+
+/* const diameters = {
+        0.15: 3.4,
+        0.20: 3.8,
+        0.25: 4.1,
+        0.30: 4.4,
+        0.35: 4.6
+    }; */
+// const diameters = [3.4, 3.8, 4.1, 4.4, 4.6];
 
 let     isDragging = false,
         isDraggingQty = false,
@@ -106,12 +117,17 @@ function setPositionByIndex() {
     setNumberPosition();
     setResultPosition();
     showResultCarats();
+    setCurrentDiameter();
 }
 
 
 function setCurrentCarat() {
     document.querySelector('.now-vis.carat').classList.remove('now-vis');
     carats[currentIndex + 1].classList.add('now-vis');
+}
+
+function setCurrentDiameter() {
+    diametersValue.innerText = diameters[currentIndex];
 }
 
 // Караты
@@ -213,12 +229,12 @@ function setResultPosition() {
 function showResultCarats() {
     let selectedCarat = carats[currentIndex + 1].innerText;
     let selectedResult = selectedCarat * currentQty;
-
+    console.log(diameters[currentIndex]);
     caratsResultWindow.innerText = selectedResult.toFixed(2) + ' ct';
 }
 
 function setQtyResultPosition() {
-    resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)'; // 0203    
+    resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)';    
     updatePricesClasses();
 }
 
@@ -244,5 +260,25 @@ $('.search-product-box :radio').on('change', function(){
     
     updatePricesClasses();
 });
-
 // Количество
+
+// ----------- //
+
+// Цена
+
+// Touch
+/* resHolder.addEventListener('touchstart', touchStartCost);
+resHolder.addEventListener('touchend', touchEndCost);
+resHolder.addEventListener('touchmove', touchMoveCost); */
+
+// Mouse
+/* resHolder.addEventListener('mousedown', touchStartCost);
+resHolder.addEventListener('mouseup', touchEndCost);
+resHolder.addEventListener('mouseleave', touchEndCost);
+resHolder.addEventListener('mousemove', touchMoveCost); */
+
+
+
+
+
+// Цена
