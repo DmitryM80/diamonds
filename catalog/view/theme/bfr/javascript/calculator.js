@@ -25,11 +25,9 @@ let     isDragging = false,
         currentCarat = 1,
         currentQty = 10,
         premiumCoeff = 0,
-        // itemHeight = 22;
         itemHeight = prices[0].getBoundingClientRect().height + heightCorrectionCoeff;
-        // itemHeight = prices[0].clientHeight;
 
-// console.log(itemHeight);
+
 window.oncontextmenu = function(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -116,18 +114,6 @@ function setCurrentCarat() {
     carats[currentIndex + 1].classList.add('now-vis');
 }
 
-// function setResultPosition() {
-//     resHolder.style.transform = 'translateY(-'+ currentIndex * itemHeight +'px)';
-//     document.querySelector('.now-vis.lot-price').classList.remove('now-vis');
-//     prices[currentIndex + 1].classList.add('now-vis');
-// }
-
-// function showResultCarats() {
-//     let selectedCarat = carats[currentIndex + 1].innerText;
-//     let selectedResult = selectedCarat * currentQty;
-
-//     caratsResultWindow.innerText = selectedResult.toFixed(2) + ' ct';
-// }
 // Караты
 
 
@@ -219,24 +205,7 @@ function setCurrentQty() {
 }
 
 function setResultPosition() {
-    console.log(premiumCoeff);
-    // console.log(currentQty);
-    // resHolder.style.transform = 'translateY(-'+ currentIndex * itemHeight +'px)';
-    // resHolder.style.transform = 'translateY(-'+ (currentIndex + 5*(currentQty - 10)) * itemHeight +'px)'; // 0203
-    // resHolder.style.transform = 'translateY(-'+ (((5*(currentQty/10)-5) + currentIndex) * itemHeight) + premiumCoeff +'px)'; // works
     resHolder.style.transform = 'translateY(-'+ (((5*(currentQty/10)-5) + currentIndex) * itemHeight) +'px)';
-    // console.log(premiumCoeff);
-    // document.querySelector('.now-vis.lot-price').classList.remove('now-vis');
-
-    /*let allVisPrices = Array.from(document.querySelectorAll('.now-vis.lot-price'));    
-    allVisPrices.forEach((priceUnit) => {
-        priceUnit.classList.remove('now-vis');
-    }); */
-    
-
-    // prices[currentIndex + 1].classList.add('now-vis');
-    /*prices[currentIndex + (5*(currentQty - 10)) + 1].classList.add('now-vis');*/
-
     
     updatePricesClasses();
 }
@@ -249,17 +218,7 @@ function showResultCarats() {
 }
 
 function setQtyResultPosition() {
-    // console.log(premiumCoeff);
-    // console.log((5 * (currentQty/10) + currentIndex));
-    // console.log((5*(currentQty/10)-5) + currentIndex);
-    // resHolder.style.transform = 'translateY(-'+ (5 * (currentQty - 10) + currentIndex) * itemHeight +'px)';
-    // resHolder.style.transform = 'translateY(-'+ (5 * (currentQty - 10) + currentIndex) * itemHeight +'px)'; // 0203
-    // resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)'; // 0203 works
-    // console.log('translateY(-'+ premiumCoeff +'px)');
-    // resHolder.style.transform = 'translateY(-'+ premiumCoeff +'px)';
-    resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)'; // 0203
-    // resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight + premiumCoeff +'px)';
-    /*prices[currentIndex + (5*(currentQty - 10)) + 1].classList.add('now-vis');*/
+    resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)'; // 0203    
     updatePricesClasses();
 }
 
@@ -269,38 +228,20 @@ function updatePricesClasses() {
         priceUnit.classList.remove('now-vis');
     });
     
-
-    // prices[currentIndex + 1].classList.add('now-vis');
-    // prices[currentIndex + (5*(currentQty - 10)) + 1].classList.add('now-vis'); // 0203
-    prices[currentIndex + ((5*(currentQty/10)-5) + premiumCoeff) + 1].classList.add('now-vis'); // 0203
-    // prices[currentIndex + (5*(currentQty/10)-5) + 1].classList.add('now-vis'); 
+    prices[currentIndex + ((5*(currentQty/10)-5) + premiumCoeff) + 1].classList.add('now-vis');
 }
 
-// console.log($('.search-product-box :radio[name="premium"]'));
 $('.search-product-box :radio').on('change', function(){
     if ($(this).val() == 'premium') {
-        // premiumCoeff = 25*itemHeight;
+        
         premiumCoeff = 26;
         $('#collection').hide();
-        // console.log(premiumCoeff);
-        // $('#cost-result-block').empty();
-        // $('#cost-result-block').append(premiumDiv);
-        // console.log($('#collection'));
-        // console.log((((5*(currentQty/10)-5) + currentIndex)*itemHeight) + 25 * itemHeight);
-        // resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)';
-        // resHolder.style.transform = 'translateY(-'+ (((5*(currentQty/10)-5) + currentIndex) *itemHeight) + premiumCoeff +'px)';
+
     } else {
         $('#collection').show();
         premiumCoeff = 0;
-        // console.log(premiumCoeff);
-        // $('#cost-result-block').empty();
-        // $('#cost-result-block').append(collectionDiv);
-        // console.log((((5*(currentQty/10)-5) + currentIndex) *itemHeight)  - 25 * itemHeight);
-        // resHolder.style.transform = 'translateY(-'+ (((5*(currentQty/10)-5) + currentIndex) *itemHeight)  - 25 * itemHeight +'px)';
-        // resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)';
-        // resHolder.style.transform = 'translateY(-'+ (((5*(currentQty/10)-5) + currentIndex) *itemHeight) + premiumCoeff +'px)';
     }
-    // resHolder.style.transform = 'translateY(-'+ (((5*(currentQty/10)-5) + currentIndex) *itemHeight) + premiumCoeff +'px)';
+    
     updatePricesClasses();
 });
 
