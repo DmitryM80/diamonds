@@ -6,20 +6,22 @@ const   carats = Array.from(document.querySelectorAll('.carat')),
         prices = Array.from(document.querySelectorAll('.lot-price')),
         caratsResultWindow = document.querySelector('.recomend-buy'),
         diametersValue = document.getElementById('diameter-value'),
-        diameters = [3.4, 3.8, 4.1, 4.4, 4.6];
+        diameters = [3.4, 3.8, 4.1, 4.4, 4.6],
+        heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
 
-        
+// resHolder.style.transition = 'transform 0s ease-in';
+// $('#premium').hide();
 
-const heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
+const caratsQty = [
+    [0,0], [1,0], [2,0], [3,0], [4,0],
+    [0,1], [1,1], [2,1], [3,1], [4,1],
+    [0,2], [1,2], [2,2], [3,2], [4,2],
+    [0,3], [1,3], [2,3], [3,3], [4,3],
+    [0,4], [1,4], [2,4], [3,4], [4,4],
+];
 
-/* const diameters = {
-        0.15: 3.4,
-        0.20: 3.8,
-        0.25: 4.1,
-        0.30: 4.4,
-        0.35: 4.6
-    }; */
-// const diameters = [3.4, 3.8, 4.1, 4.4, 4.6];
+// const heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
+
 
 let     isDragging = false,
         isDraggingQty = false,
@@ -29,12 +31,17 @@ let     isDragging = false,
         animationId = 0,
         qtyAnimationId = 0,
         startPosQty = 0,
+        startPosCost = 0,
         currentTranslateQty = 0,
+        currentTranslateCost = 0,
         prevTranslateQty = 0,
+        prevTranslateCost = 0,
         currentIndex = 0,
         currentIndexQty = 0,
+        currentIndexCost = 0,
         currentCarat = 1,
         currentQty = 10,
+        currentCost = 159500,
         premiumCoeff = 0,
         itemHeight = prices[0].getBoundingClientRect().height + heightCorrectionCoeff;
 
@@ -105,6 +112,7 @@ function animation() {
 }
 
 function setNumberPosition() {
+    // console.log('Carat', currentIndex);
     numbers.style.transform = 'translateY('+ currentTranslate +'px)';
 }
 
@@ -133,7 +141,7 @@ function setCurrentDiameter() {
 // Караты
 
 
-
+// --------------------- //
 
 // Количество
 
@@ -210,13 +218,14 @@ function setQtyPositionByIndex() {
 }
 
 function setQtyPosition() {
+    // console.log(currentIndexQty);
     quantities.style.transform = 'translateY('+ currentTranslateQty +'px)';
 }
 
 function setCurrentQty() {
     document.querySelector('.now-vis.qty').classList.remove('now-vis');
     qty[currentIndexQty + 1].classList.add('now-vis');
-    
+    // console.log('Qty', currentIndexQty);
     currentQty = qty[currentIndexQty + 1].innerText;
 }
 
@@ -229,7 +238,7 @@ function setResultPosition() {
 function showResultCarats() {
     let selectedCarat = carats[currentIndex + 1].innerText;
     let selectedResult = selectedCarat * currentQty;
-    console.log(diameters[currentIndex]);
+    
     caratsResultWindow.innerText = selectedResult.toFixed(2) + ' ct';
 }
 
@@ -252,9 +261,11 @@ $('.search-product-box :radio').on('change', function(){
         
         premiumCoeff = 26;
         $('#collection').hide();
+        $('#premium').show();
 
     } else {
         $('#collection').show();
+        $('#premium').hide();
         premiumCoeff = 0;
     }
     
@@ -267,18 +278,92 @@ $('.search-product-box :radio').on('change', function(){
 // Цена
 
 // Touch
-/* resHolder.addEventListener('touchstart', touchStartCost);
+resHolder.addEventListener('touchstart', touchStartCost);
 resHolder.addEventListener('touchend', touchEndCost);
-resHolder.addEventListener('touchmove', touchMoveCost); */
+resHolder.addEventListener('touchmove', touchMoveCost);
 
 // Mouse
-/* resHolder.addEventListener('mousedown', touchStartCost);
+resHolder.addEventListener('mousedown', touchStartCost);
 resHolder.addEventListener('mouseup', touchEndCost);
 resHolder.addEventListener('mouseleave', touchEndCost);
-resHolder.addEventListener('mousemove', touchMoveCost); */
+resHolder.addEventListener('mousemove', touchMoveCost);
+
+function touchStartCost(e) {
+    startPosCost = getPositionY(e);
+    isDragging = true;
+        
+    costAnimationId = requestAnimationFrame(costAnimation);
+}
+
+function touchEndCost() {
+    isDragging = false;
+    cancelAnimationFrame(animationId);
+
+    const costMovedBy = currentTranslateCost - prevTranslateCost;
+    
+    // if (costMovedBy < -itemHeight && (currentIndexCost < (prices.length - 2))) {
+    if (costMovedBy < -itemHeight && (currentIndexCost < (prices.length - 28))) {
+        currentCost = currentIndexCost += 1;
+    }
+    
+    if (costMovedBy > itemHeight && currentIndexCost > 0) {
+        currentCost = currentIndexCost -= 1;        
+    }
+
+    setCurrentCost();
+    setCostPositionByIndex();
+}
 
 
+function touchMoveCost(event) {
+    event.preventDefault();
+    if (isDragging) {
+        const currentPositionCost = getPositionY(event);
+        currentTranslateCost = prevTranslateCost + currentPositionCost - startPosCost;
+    }
+}
 
 
+function costAnimation() {
+    setCostPosition();    
+    if (isDragging) {
+        requestAnimationFrame(costAnimation);
+    }
+}
+
+function setCostPositionByIndex() {
+    
+    currentTranslateCost = currentIndexCost * -itemHeight;
+    
+    prevTranslateCost = currentTranslateCost;
+    console.log('CostIndex', currentIndexCost);
+    console.log('CaratQty', caratsQty[currentIndexCost][0]);
+
+    currentIndex = caratsQty[currentIndexCost][0];
+    currentIndexQty = caratsQty[currentIndexCost][1];
+
+    console.log('curQtyIdx', currentIndexQty);
+
+    setCostPosition();
+    setPositionByIndex();
+    setQtyPositionByIndex();
+    setCurrentCarat();
+    setCurrentQty();
+    setCurrentCost();
+}
+
+function setCostPosition() {
+    // resHolder.classList.add('moving-column');
+    resHolder.style.transform = 'translateY('+ currentTranslateCost +'px)';
+    // resHolder.classList.remove('moving-column');
+}
+
+function setCurrentCost() {
+    document.querySelector('.now-vis.lot-price').classList.remove('now-vis');
+    // prices[currentIndexCost + 1].classList.add('now-vis');
+    prices[currentIndexCost + premiumCoeff + 1].classList.add('now-vis');
+    
+    currentCost = prices[currentIndexCost + 1].innerText;
+}
 
 // Цена

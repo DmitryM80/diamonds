@@ -58,10 +58,17 @@
     }
 }
 
-
-.cost-result {
-    transition: transform 0.5s ease-in;
+#premium {
+    display: none;
 }
+
+/* .cost-result {
+    transition: transform 0.5s ease-in;
+} */
 .search-calc-box .recomend-buy {
     width: 70px;
+}
+
+.moving-column {
+    transition: transform 0.5s ease-in;
 }
