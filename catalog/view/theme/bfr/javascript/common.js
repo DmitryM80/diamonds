@@ -42,7 +42,7 @@ $(function() {
 		var formFilled = true;
 
 		$("#contact-form :text, #contact-form :checkbox").each(function() {
-			console.log($(this))
+			
 			if ($(this).val() == "") {
 				formFilled = false;
 			}
@@ -50,7 +50,7 @@ $(function() {
 
 		
 		if (formFilled) {
-			console.log('filled');
+			
 			var form_data = $(this).serialize();
 		
 			$.ajax({
