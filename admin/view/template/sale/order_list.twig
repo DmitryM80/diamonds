@@ -179,10 +179,11 @@
                     {# <td class="text-left">{% if sort == 'order_status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td> #}
                     <td class="text-left">{{ column_customer }}</td>
                     {# <td class="text-left">{% if sort == 'order_status' %} <a href="{{ sort_status }}" class="{{ order|lower }}">{{ column_status }}</a> {% else %} <a href="{{ sort_status }}">{{ column_status }}</a> {% endif %}</td> #}
-                    <td class="text-left">Email</td>
+                    {# <td class="text-left">Email</td> #}
                     <td class="text-left">Телефон</td>
                     <td class="text-left">Комментарий</td>
                     <td class="text-left">Заказ</td>
+                    <td class="text-left">Лоты</td>
                     
                     <td class="text-right">{{ column_total }}</td>
                     <td class="text-left">{{ column_date_added }}</td>
@@ -205,7 +206,7 @@
                   <td class="text-right">{{ order.order_id }}</td>
                   {# <td class="text-left">{{ order.status }}</td> #}
                   <td class="text-left">{{ order.customer_name }}</td>
-                  <td class="text-left"><a href="mailto:{{ order.customer_email }}">{{ order.customer_email }}</a></td>
+                  {# <td class="text-left"><a href="mailto:{{ order.customer_email }}">{{ order.customer_email }}</a></td> #}
                   <td class="text-left"><a href="tel:{{ order.customer_phone }}">{{ order.customer_phone }}</a></td>
                   <td class="text-left">{{ order.customer_comment }}</td>
                   <td class="text-left">
@@ -215,6 +216,14 @@
                       {{ item.product_price | number_format(0, ',', '.') }} р. x{{ item.product_quantity }}шт. {% if not loop.last %}<br>{% endif %}
                     {% endfor %}
                   </td>
+                  
+                  <td class="text-left">
+                    {% for lot in order.lots %}                 
+                      Карат: {{ lot.carats }}, Количество: {{ lot.quantity }} шт., Стоимость: {{ lot.cost | number_format(0, ',', '.') }} руб.
+                      {% if not loop.last %}<br>{% endif %}
+                    {% endfor %}
+                  </td>
+                  
                   <td class="text-right">{{ order.total | number_format(0, ',', '.') }} р.</td>
                   <td class="text-left">{{ order.order_date }}</td>
                   

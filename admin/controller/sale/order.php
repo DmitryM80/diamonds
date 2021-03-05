@@ -245,18 +245,28 @@ class ControllerSaleOrder extends Controller {
 		$bfr_orders_query = $this->db->query("SELECT * FROM oc_bfr_orders");
 
 		
-		foreach ($bfr_orders_query->rows as $order_data) {
-			
+		foreach ($bfr_orders_query->rows as $order_data) {	
 
 			$bfr_order_products = json_decode($order_data['order_products'], true);
 
 			$order_total_cost = 0;
+
+			$order_lots = array();
+			if ($order_data['order_lots']) {
+
+				$lots = json_decode($order_data['order_lots'], true);
+				foreach ($lots as $order_lot) {
+					$order_lots[] = $order_lot;
+					$order_total_cost += $order_lot['cost'];
+				}
+				$order_data['lots'] = $order_lots;
+			}
+
 			foreach ($bfr_order_products as $product_id => $quantity) {
 				$product_query = $this->db->query("SELECT opd.name, op.model, op.price, op.image FROM oc_product op
 					LEFT JOIN oc_product_description opd ON (opd.product_id = op.product_id)
 					WHERE op.product_id =".$product_id);				
 			
-
 				$bfr_product_order_cost = (int)$product_query->row['price'];
 
 				if ($quantity > 1) {
@@ -272,16 +282,13 @@ class ControllerSaleOrder extends Controller {
 				$product['product_href'] = HTTP_CATALOG . 'index.php?route=product/product&product_id=' . $product_id;
 				$product['total'] = $bfr_product_order_cost;
 				
-
 				$order_data['items'][] = $product;
-				
 			}
+
 			$order_data['total'] = $order_total_cost;
 			$bfr_orders[] = $order_data;
 		}
 		$data['bfr_orders'] = $bfr_orders;
-
-		// dp($bfr_orders);
 		// Заказы BFR
 
 		$data['user_token'] = $this->session->data['user_token'];

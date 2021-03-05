@@ -9,8 +9,6 @@ const   carats = Array.from(document.querySelectorAll('.carat')),
         diameters = [3.4, 3.8, 4.1, 4.4, 4.6],
         heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
 
-// resHolder.style.transition = 'transform 0s ease-in';
-// $('#premium').hide();
 
 const caratsQty = [
     [0,0], [1,0], [2,0], [3,0], [4,0],
@@ -19,8 +17,6 @@ const caratsQty = [
     [0,3], [1,3], [2,3], [3,3], [4,3],
     [0,4], [1,4], [2,4], [3,4], [4,4],
 ];
-
-// const heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
 
 
 let     isDragging = false,
@@ -46,6 +42,7 @@ let     isDragging = false,
         itemHeight = prices[0].getBoundingClientRect().height + heightCorrectionCoeff,
         lotObj;
 
+updateLotObj();
 
 window.oncontextmenu = function(event) {
     event.preventDefault();

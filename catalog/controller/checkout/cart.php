@@ -556,10 +556,7 @@ class ControllerCheckoutCart extends Controller {
 		$json = array();
 		$json['success'] = false;
 
-		$user_name = ' - ';
-		$user_email = ' - ';
-		$user_tel = ' - ';
-		$user_comment = ' - ';
+		$user_name = $user_email = $user_tel = $user_comment = ' - ';
 
 		if (isset($_POST['user-name']) && $_POST['user-name']) {
 			$user_name = $_POST['user-name'];
@@ -574,18 +571,22 @@ class ControllerCheckoutCart extends Controller {
 			$user_comment = $_POST['user-comment'];
 		}
 
+		$this->load->model('catalog/product');
+		$ordered_lots = json_encode($this->model_catalog_product->getLots());
 
 		$query = $this->db->query("SELECT product_id, quantity FROM oc_cart WHERE session_id='".$this->session->getId()."'");
+
 		$ordered_products = array();
+
 		foreach ($query->rows as $purchase) {
 			$ordered_products[$purchase['product_id']] = $purchase['quantity'];
 		}
 			$order_products = json_encode($ordered_products);
 
 			$write_query = $this->db->query("INSERT INTO oc_bfr_orders 
-			(`customer_name`, `customer_email`, `customer_phone`, `customer_comment`, `order_products`) 
+			(`customer_name`, `customer_email`, `customer_phone`, `customer_comment`, `order_products`, `order_lots`) 
 			VALUES 
-			('".$user_name."', '".$user_email."', '".$user_tel."', '".$user_comment."', '".$order_products."')");
+			('".$user_name."', '".$user_email."', '".$user_tel."', '".$user_comment."', '".$order_products."', '". $ordered_lots ."')");
 			
 		if ($write_query) {
 			$json['success'] = true;
