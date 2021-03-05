@@ -581,4 +581,15 @@ class ModelCatalogProduct extends Model {
 	{
 		$this->db->query("DELETE FROM ". DB_PREFIX ."bfr_lots_cart WHERE id=". $lot_id ." AND session_id='". $this->session->getId() ."'");
 	}
+
+	public function removeLotsOnOrder()
+	{
+		$this->db->query("DELETE FROM ". DB_PREFIX ."bfr_lots_cart WHERE session_id='". $this->session->getId() ."'");
+	}
+
+	public function emptyCartsOnOrder()
+	{
+		$this->db->query("DELETE FROM ". DB_PREFIX ."bfr_lots_cart WHERE session_id='". $this->session->getId() ."'");
+		$this->db->query("DELETE FROM ". DB_PREFIX ."cart WHERE session_id='". $this->session->getId() ."'");
+	}
 }

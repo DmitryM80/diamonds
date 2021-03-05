@@ -590,6 +590,9 @@ class ControllerCheckoutCart extends Controller {
 			
 		if ($write_query) {
 			$json['success'] = true;
+
+			// $this->model_catalog_product->removeLotsOnOrder();
+			$this->model_catalog_product->emptyCartsOnOrder();
 		}
 
 
