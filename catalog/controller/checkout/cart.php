@@ -21,7 +21,9 @@ class ControllerCheckoutCart extends Controller {
 			'text' => $this->language->get('heading_title')
 		);
 
-		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {
+		$this->load->model('catalog/product');
+
+		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers']) || $this->model_catalog_product->countLots()) {
 			if (!$this->cart->hasStock() && (!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning'))) {
 				$data['error_warning'] = $this->language->get('error_stock');
 			} elseif (isset($this->session->data['error'])) {
@@ -245,6 +247,11 @@ class ControllerCheckoutCart extends Controller {
 				}
 			}
 
+
+			// Лоты
+			$data['lots'] = $this->model_catalog_product->getLots();			
+			$data['products_lots_total'] = $this->model_catalog_product->getLotsTotal() + $this->cart->getTotal();
+
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
@@ -384,11 +391,48 @@ class ControllerCheckoutCart extends Controller {
 
 				// $json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
 				$products_qty = $this->cart->countProducts();
-				$json['products_qty'] = $products_qty;
+				$json['products_qty'] = $this->cart->countProducts() + $this->model_catalog_product->countLots();
 				$json['total'] = sprintf($this->language->get('text_items'), $products_qty + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
 			} else {
 				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']));
 			}
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+	
+	public function lot_add() {
+
+		$json = array();
+		$lot_data = array();
+
+		if (isset($this->request->post['carats'])) {
+			$lot_data['carats'] = (float) $this->request->post['carats'];
+		} else {
+			$json['error'] = true;
+		}
+
+		if (isset($this->request->post['quantity'])) {
+			$lot_data['quantity'] = (int) $this->request->post['quantity'];
+		} else {
+			$json['error'] = true;
+		}
+
+		if (isset($this->request->post['cost'])) {
+			$lot_data['cost'] = (int) $this->request->post['cost'];
+		} else {
+			$json['error'] = true;
+		}
+
+		if (!$json) {
+
+			$this->load->model('catalog/product');
+
+			$now_totals = $this->model_catalog_product->lotAdd($lot_data);
+
+			$json['success'] = true;
+			$json['total'] = $now_totals;
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
@@ -485,6 +529,22 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
+		}
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}
+	
+	public function lot_remove() {
+
+		$json = array();
+
+		if (isset($this->request->post['lot_id'])) {
+
+			$this->load->model('catalog/product');
+			$this->model_catalog_product->removeLot($this->request->post['lot_id']);
+
+			$json['total'] = $this->cart->countProducts() + $this->model_catalog_product->getLotsTotal();
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

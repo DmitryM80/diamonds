@@ -192,13 +192,13 @@ var cart = {
 
 				if (json['success']) {
 					// $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
+					console.log('success', json);
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						// $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 						$('#items-in-cart').text(json['products_qty']);
 						$('#items-in-cart').show();
-						$('#footerLine span.mark').text(json['products_qty']);
+						// $('#footerLine span.mark').text(json['products_qty']);
 
 						$('#add-to-cart-modal').modal();
 					}, 100);
@@ -210,6 +210,31 @@ var cart = {
 
 
 
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	},
+	'lotAdd': function(lot) {
+		$.ajax({
+			url: 'index.php?route=checkout/cart/lot_add',
+			type: 'post',
+			data: 'carats=' + lot.ct + '&quantity=' + (typeof(lot.qty) != 'undefined' ? lot.qty : 1) + '&cost=' + (typeof(lot.cost) != 'undefined' ? lot.cost : 1),
+			dataType: 'json',
+			success: function(json) {
+
+				if (json['success']) {
+
+					// Need to set timeout otherwise it wont update the total
+					setTimeout(function () {
+						$('#items-in-cart').text(json['total']);
+						$('#items-in-cart').show();
+						$('#lot-add-to-cart-modal').modal();
+					}, 100);
+				} else if (json['error']) {
+					alert('Function ERROR !!!');
 				}
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
@@ -268,6 +293,29 @@ var cart = {
 					location = 'index.php?route=checkout/cart';
 				} else {
 					$('#cart > ul').load('index.php?route=common/cart/info ul li');
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	},
+	
+	'lotRemove': function(lot_id) {
+		$.ajax({
+			url: 'index.php?route=checkout/cart/lot_remove',
+			type: 'post',
+			data: 'lot_id=' + lot_id,
+			dataType: 'json',
+			success: function(json) {
+
+				// Need to set timeout otherwise it wont update the total
+				setTimeout(function () {
+					console.log(json['total']);
+				}, 100);
+
+				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
+					location = 'index.php?route=checkout/cart';
 				}
 			},
 			error: function(xhr, ajaxOptions, thrownError) {

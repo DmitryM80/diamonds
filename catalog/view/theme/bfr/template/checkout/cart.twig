@@ -49,6 +49,36 @@
 
           {% endfor %}
 
+          {% if lots %}
+
+            {% for lot in lots %}
+
+              <div class="card product-card p-0">                
+                <div class="col col-info">
+                  <div class="head-panel">
+                    <div class="product-title">
+                      Лот № {{ lot.id }}
+                    </div>
+                    <div class="like-btn">
+                      <button class="close" onclick="cart.lotRemove('{{ lot.id }}')">&times;</button>
+                    </div>
+                  </div>
+                  <div class="card-body info-panel">
+                                        
+                        <div class="info-item"><span class="info-item-title">Карат: </span>{{ lot.carats | number_format(2, '.', ' ') }}</div>
+                        <div class="info-item"><span class="info-item-title">Количество: </span>{{ lot.quantity }}</div>  
+
+                  </div>
+                  
+                  <div class="price-panel"><span class="info-item-title">Цена: </span><span class="price-item-product">{{ lot.cost | number_format(0, ',', ' ') }} руб</span></div> 
+                  <p class="delete-product-link" onclick="cart.lotRemove('{{ lot.id }}')">Удалить</p>
+                </div> 
+              </div>
+              
+            {% endfor %}
+
+          {% endif %}
+
           {# <div class="card product-card p-0">
             <div class="col-6 col-img p-0">
               <img src="img/product.png" alt="">
@@ -79,7 +109,7 @@
       </div>
       <div class="row total-row">
         <div class="col-6">Общая стоимость изделий в заказе</div>
-        <div class="col-6"><span class="price-item-product">{{ cart_total_cost | number_format(0, ',', ' ') }} руб</span></div>
+        <div class="col-6"><span class="price-item-product">{{ products_lots_total | number_format(0, ',', ' ') }} руб</span></div>
       </div>
       <div class="row btn-checkout-row">
         <div class="col d-flex justify-content-center">
@@ -351,5 +381,5 @@
       </div> 
     </div>
   </div> #}
-
+</div>
 {{ footer }} 

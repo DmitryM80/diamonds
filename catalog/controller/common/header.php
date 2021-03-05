@@ -75,6 +75,8 @@ class ControllerCommonHeader extends Controller {
 		$data['wishlist_results'] = $this->model_account_wishlist->getWishlistBySession();
 		// dd($wishlist_results);
 
+		$this->load->model('catalog/product');
+
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));
 		
 		$data['home'] = $this->url->link('common/home');
@@ -95,7 +97,7 @@ class ControllerCommonHeader extends Controller {
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['currency'] = $this->load->controller('common/currency');
-		$data['items_in_cart'] = $this->cart->countProducts();
+		$data['items_in_cart'] = $this->cart->countProducts() + $this->model_catalog_product->countLots();
 
 
 		// временно страница о проекте

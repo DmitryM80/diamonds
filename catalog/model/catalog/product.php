@@ -541,4 +541,44 @@ class ModelCatalogProduct extends Model {
 			return 0;
 		}
 	}
+
+	public function lotAdd($lot_data) {
+		
+		$this->db->query("INSERT INTO ".DB_PREFIX."bfr_lots_cart (session_id, carats, quantity, cost)
+			VALUES ('". $this->session->getId() ."', ". $lot_data['carats'] .", ".$lot_data['quantity'].", ".$lot_data['cost'].")");
+
+		$total_products_and_lots = $this->countLots() + $this->cart->countProducts();
+
+		return $total_products_and_lots;
+	}
+
+	public function countLots()
+	{
+		$lots = $this->db->query("SELECT COUNT(*) AS count_lots FROM ".DB_PREFIX."bfr_lots_cart WHERE session_id ='". $this->session->getId() ."'");
+
+		return (int)$lots->row['count_lots'];
+	}
+
+	public function getLots()
+	{
+		$query = $this->db->query("SELECT id, carats, quantity, cost FROM ". DB_PREFIX ."bfr_lots_cart WHERE session_id='".$this->session->getId()."'");
+
+		return $query->rows;
+	}
+
+	public function getLotsTotal()
+	{
+		$total_cost = 0;
+
+		foreach ($this->getLots() as $lot) {
+			$total_cost += $lot['cost'];
+		}
+
+		return $total_cost;
+	}
+
+	public function removeLot(int $lot_id)
+	{
+		$this->db->query("DELETE FROM ". DB_PREFIX ."bfr_lots_cart WHERE id=". $lot_id ." AND session_id='". $this->session->getId() ."'");
+	}
 }

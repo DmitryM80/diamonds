@@ -43,7 +43,8 @@ let     isDragging = false,
         currentQty = 10,
         currentCost = 159500,
         premiumCoeff = 0,
-        itemHeight = prices[0].getBoundingClientRect().height + heightCorrectionCoeff;
+        itemHeight = prices[0].getBoundingClientRect().height + heightCorrectionCoeff,
+        lotObj;
 
 
 window.oncontextmenu = function(event) {
@@ -213,6 +214,7 @@ function setQtyPositionByIndex() {
     prevTranslateQty = currentTranslateQty;
 
     setQtyPosition();
+    // setCurrentCost();
     setQtyResultPosition();
     showResultCarats();
 }
@@ -243,7 +245,7 @@ function showResultCarats() {
 }
 
 function setQtyResultPosition() {
-    resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)';    
+    resHolder.style.transform = 'translateY(-'+ ((5*(currentQty/10)-5) + currentIndex) * itemHeight +'px)';
     updatePricesClasses();
 }
 
@@ -297,7 +299,7 @@ function touchStartCost(e) {
 
 function touchEndCost() {
     isDragging = false;
-    cancelAnimationFrame(animationId);
+    cancelAnimationFrame(costAnimationId);
 
     const costMovedBy = currentTranslateCost - prevTranslateCost;
     
@@ -337,12 +339,13 @@ function setCostPositionByIndex() {
     
     prevTranslateCost = currentTranslateCost;
     console.log('CostIndex', currentIndexCost);
-    console.log('CaratQty', caratsQty[currentIndexCost][0]);
+    console.log('CaratCarat', caratsQty[currentIndexCost][0]);
+    console.log('CaratQty', caratsQty[currentIndexCost][1]);
 
     currentIndex = caratsQty[currentIndexCost][0];
     currentIndexQty = caratsQty[currentIndexCost][1];
 
-    console.log('curQtyIdx', currentIndexQty);
+    // console.log('curQtyIdx', currentIndexQty);
 
     setCostPosition();
     setPositionByIndex();
@@ -350,6 +353,7 @@ function setCostPositionByIndex() {
     setCurrentCarat();
     setCurrentQty();
     setCurrentCost();
+    updateLotObj();
 }
 
 function setCostPosition() {
@@ -367,3 +371,12 @@ function setCurrentCost() {
 }
 
 // Цена
+
+// Лот
+function updateLotObj () {
+    lotObj = {
+        ct: carats[currentIndex + 1].innerText,
+        qty: qty[currentIndexQty + 1].innerText,
+        cost: prices[currentIndexCost + 1].innerText.replace(/\s/g, '')
+    };
+}
