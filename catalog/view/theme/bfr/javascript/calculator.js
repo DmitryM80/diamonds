@@ -7,6 +7,9 @@ const   carats = Array.from(document.querySelectorAll('.carat')),
         caratsResultWindow = document.querySelector('.recomend-buy'),
         diametersValue = document.getElementById('diameter-value'),
         diameters = [3.4, 3.8, 4.1, 4.4, 4.6],
+        upperArrow = document.querySelector('.diamond-upper-arrow'),
+        lowerArrow = document.querySelector('.diamond-lower-arrow'),
+        diamondImg = document.querySelector('.diamond-rs img'),
         heightCorrectionCoeff = (window.outerWidth < 767) ? 0.3 : 0.9;
 
 
@@ -18,6 +21,9 @@ const caratsQty = [
     [0,4], [1,4], [2,4], [3,4], [4,4],
 ];
 
+const diamondAnimationSizes = [
+    [80, 34], [85, 33], [90, 32], [95, 30], [100, 29]
+];
 
 let     isDragging = false,
         isDraggingQty = false,
@@ -124,6 +130,7 @@ function setPositionByIndex() {
     setResultPosition();
     showResultCarats();
     setCurrentDiameter();
+    setDiamondSize();
 }
 
 
@@ -134,6 +141,12 @@ function setCurrentCarat() {
 
 function setCurrentDiameter() {
     diametersValue.innerText = diameters[currentIndex];
+}
+
+function setDiamondSize() {
+    diamondImg.style.width = diamondAnimationSizes[currentIndex][0] + '%';
+    upperArrow.style.height = diamondAnimationSizes[currentIndex][1] + '%';
+    lowerArrow.style.height = diamondAnimationSizes[currentIndex][1] + '%';
 }
 
 // Караты

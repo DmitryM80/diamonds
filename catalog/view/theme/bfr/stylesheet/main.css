@@ -267,11 +267,56 @@ button.main-btn.wishlist-incart {
 /* бегущая строка */
 
 /* Диаметр бриллианта */
+.diamond-animation-box, .diamond-diameter-box {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+.diamond-animation-box {
+  overflow: hidden;
+}
+.diamond-upper-arrow, .diamond-lower-arrow {
+  height: 34%;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;  
+  transition: height 0.1s ease-out;
+}
+.diamond-animation-box .diamond-upper-arrow img, .diamond-animation-box .diamond-lower-arrow img {
+  max-height: 100%;
+}
+.diamond-upper-arrow {
+  border-bottom: 2px solid #222;
+  background-image: url("../image/dn-arrow.png");
+  background-position: center bottom;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+.diamond-lower-arrow {
+  border-top: 2px solid #222;
+  background-image: url("../image/up-arrow.png");
+  background-position: center top;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.diamond-rs {
+  text-align: center;
+}
+.diamond-rs img {
+  max-height: 100%;
+  max-width: 100%;
+  width: 80%;
+  transition: width 0.1s ease-out;
+}
+
 .diamond-diameter {
   position: absolute;
-  left: 12%;
-  bottom: 39%;
+  bottom: 50%;
+  transform: translateY(50%);
   font-size: 13px;
+  font-weight: bold;
+  letter-spacing: -0.3px;   
 }
 /* Диаметр бриллианта */
 
@@ -1061,15 +1106,16 @@ ul.navbar-menu li a {
   .search-calc-box .search-box-ico {
     background: rgba(255, 255, 255, 0.5);
     margin-top: 0px;
+    padding: 0;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
+    /* -webkit-flex-direction: column; */
+    /* -ms-flex-direction: column; */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-            flex-direction: column;
+            /* flex-direction: column; */
     -webkit-justify-content: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -1078,7 +1124,7 @@ ul.navbar-menu li a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    .search-calc-box .search-box-ico img {
+    /* .search-calc-box .search-box-ico img {
       max-width: 100%;
       height: auto;
       max-height: 85px;
@@ -1088,7 +1134,7 @@ ul.navbar-menu li a {
           max-height: 155px; } }
       @media (min-width: 1441px) {
         .search-calc-box .search-box-ico img {
-          max-height: 170px; } }
+          max-height: 170px; } } */
   .search-calc-box .white-btn {
     display: block;
     width: -webkit-max-content;
