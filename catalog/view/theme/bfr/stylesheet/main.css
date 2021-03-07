@@ -312,9 +312,8 @@ button.main-btn.wishlist-incart {
 
 .diamond-diameter {
   position: absolute;
-  bottom: 50%;
-  transform: translateY(50%);
-  font-size: 13px;
+  bottom: 39%;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: -0.3px;   
 }
