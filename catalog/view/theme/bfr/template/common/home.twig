@@ -285,7 +285,7 @@
                   <div class="col-6 col-info">
                     <div class="head-panel">
                       <div class="product-title">
-                        <a href="{{ brilliant.href }}">{{ brilliant.name }} </a>
+                        <a href="{{ brilliant.href }}">{{ brilliant.name | replace({"ct" : ""}) }} <span class="lower-ct">ct</span> </a>
                       </div>
                       <div class="like-btn" onclick="wishlist.add('{{ brilliant.product_id }}');"><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></div>
                     </div>
@@ -314,6 +314,6 @@
     </div>
   </div>
   
-  <script src="catalog/view/theme/bfr/javascript/calculator.js?v07032102" type="text/javascript"></script>
+  <script src="catalog/view/theme/bfr/javascript/calculator.js?v07032104" type="text/javascript"></script>
 
 {{ footer }}

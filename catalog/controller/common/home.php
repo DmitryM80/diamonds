@@ -20,11 +20,12 @@ class ControllerCommonHome extends Controller {
 
 		foreach ($brilliants as $brilliant) {
 			$brilliant['brilliant_attributes'] = $this->model_catalog_product->getProductAttributes($brilliant['product_id']);
-			$brilliant['main_image'] = $data['popup'] = $this->model_tool_image->resize($brilliant['image'], 384, 451);
+			$brilliant['main_image'] = $data['popup'] = $this->model_tool_image->resize($brilliant['image'], 384, 384);
 			$brilliant['href'] = $this->url->link('product/product', 'product_id=' . $brilliant['product_id']);
 			$data['brilliants'][] = $brilliant;
 		}
 
+		$data['ct'] = 'ct';
 		// dp($data['brilliants']);
 
 		// $data['wishlist'] = $this->url->link('account/wishlist', '', true);

@@ -132,6 +132,7 @@ function setPositionByIndex() {
     showResultCarats();
     setCurrentDiameter();
     setDiamondSize();
+    updateLotObj();
 }
 
 
@@ -226,6 +227,7 @@ function setQtyPositionByIndex() {
     setQtyPosition();
     setQtyResultPosition();
     showResultCarats();
+    updateLotObj();
 }
 
 function setQtyPosition() {

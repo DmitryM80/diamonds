@@ -22,7 +22,7 @@
               <div class="col-6 col-info">
                 <div class="head-panel">
                   <div class="product-title">
-                    <a href="{{ product.href }}">{{ product.name }}</a>
+                    <a href="{{ product.href }}">{{ product.name | replace({"ct" : ""}) }} <span class="lower-ct">ct</span> </a>
                   </div>
                   <div class="like-btn">
                     {# <label class="container-check"  for="product-1-check"> 
