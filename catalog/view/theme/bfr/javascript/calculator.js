@@ -46,7 +46,8 @@ let     isDragging = false,
         currentCost = 159500,
         premiumCoeff = 0,
         itemHeight = prices[0].getBoundingClientRect().height + heightCorrectionCoeff,
-        lotObj;
+        lotObj = {},
+        costLevelIndex = 0;
 
 updateLotObj();
 
@@ -86,10 +87,12 @@ function touchEnd() {
     
     if (movedBy < -itemHeight && (currentIndex < (carats.length - 2))) {
         currentCarat = currentIndex += 1;
+        currentIndexCost += 1;
     }
     
     if (movedBy > itemHeight && currentIndex > 0) {
-        currentCarat = currentIndex -= 1;        
+        currentCarat = currentIndex -= 1;
+        currentIndexCost += 1;
     }
 
     setCurrentCarat();    
@@ -116,14 +119,12 @@ function animation() {
 }
 
 function setNumberPosition() {
-    // console.log('Carat', currentIndex);
     numbers.style.transform = 'translateY('+ currentTranslate +'px)';
 }
 
 function setPositionByIndex() {
     
-    currentTranslate = currentIndex * -itemHeight;
-    
+    currentTranslate = currentIndex * -itemHeight;    
     prevTranslate = currentTranslate;
 
     setNumberPosition();
@@ -185,13 +186,13 @@ function touchEndQty() {
     const qtyMovedBy = currentTranslateQty - prevTranslateQty;
     
     if (qtyMovedBy < -itemHeight && (currentIndexQty < (qty.length - 2))) {
-        // currentQty = currentIndexQty += 1;
         currentIndexQty += 1;
+        currentIndexCost += 5;
     }
     
     if (qtyMovedBy > itemHeight && currentIndexQty > 0) {
-        // currentQty = currentIndexQty -= 1;        
-        currentIndexQty -= 1;        
+        currentIndexQty -= 1;  
+        currentIndexCost -= 5;      
     }
 
     setCurrentQty();    
@@ -220,24 +221,20 @@ function qtyAnimation() {
 function setQtyPositionByIndex() {
     
     currentTranslateQty = currentIndexQty * -itemHeight;
-    
     prevTranslateQty = currentTranslateQty;
 
     setQtyPosition();
-    // setCurrentCost();
     setQtyResultPosition();
     showResultCarats();
 }
 
 function setQtyPosition() {
-    // console.log(currentIndexQty);
     quantities.style.transform = 'translateY('+ currentTranslateQty +'px)';
 }
 
 function setCurrentQty() {
     document.querySelector('.now-vis.qty').classList.remove('now-vis');
     qty[currentIndexQty + 1].classList.add('now-vis');
-    // console.log('Qty', currentIndexQty);
     currentQty = qty[currentIndexQty + 1].innerText;
 }
 
@@ -313,13 +310,12 @@ function touchEndCost() {
 
     const costMovedBy = currentTranslateCost - prevTranslateCost;
     
-    // if (costMovedBy < -itemHeight && (currentIndexCost < (prices.length - 2))) {
     if (costMovedBy < -itemHeight && (currentIndexCost < (prices.length - 28))) {
         currentCost = currentIndexCost += 1;
     }
     
     if (costMovedBy > itemHeight && currentIndexCost > 0) {
-        currentCost = currentIndexCost -= 1;        
+        currentCost = currentIndexCost -= 1;
     }
 
     setCurrentCost();
@@ -348,14 +344,8 @@ function setCostPositionByIndex() {
     currentTranslateCost = currentIndexCost * -itemHeight;
     
     prevTranslateCost = currentTranslateCost;
-    console.log('CostIndex', currentIndexCost);
-    console.log('CaratCarat', caratsQty[currentIndexCost][0]);
-    console.log('CaratQty', caratsQty[currentIndexCost][1]);
-
     currentIndex = caratsQty[currentIndexCost][0];
     currentIndexQty = caratsQty[currentIndexCost][1];
-
-    // console.log('curQtyIdx', currentIndexQty);
 
     setCostPosition();
     setPositionByIndex();
@@ -369,12 +359,10 @@ function setCostPositionByIndex() {
 function setCostPosition() {
     // resHolder.classList.add('moving-column');
     resHolder.style.transform = 'translateY('+ currentTranslateCost +'px)';
-    // resHolder.classList.remove('moving-column');
 }
 
 function setCurrentCost() {
     document.querySelector('.now-vis.lot-price').classList.remove('now-vis');
-    // prices[currentIndexCost + 1].classList.add('now-vis');
     prices[currentIndexCost + premiumCoeff + 1].classList.add('now-vis');
     
     currentCost = prices[currentIndexCost + 1].innerText;
