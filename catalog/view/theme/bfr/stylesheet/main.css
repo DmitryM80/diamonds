@@ -1011,7 +1011,8 @@ ul.navbar-menu li a {
 .search-calc-box {
   margin: 74px 0 26px;
   -webkit-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  user-select: none; }
   @media (min-width: 1200px) {
     .search-calc-box {
       margin: 54px 0 26px; } }

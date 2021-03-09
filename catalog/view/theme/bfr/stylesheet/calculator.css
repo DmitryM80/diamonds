@@ -28,8 +28,8 @@
     width: 100px;
     transition: transform 0.8s ease-in;
 }
-.carat, .qty, .result {
-    cursor: grab;
+.carat-list, .qty-list, .cost-result {
+    cursor: ns-resize;
 }
 
 .current {
