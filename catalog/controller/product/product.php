@@ -390,19 +390,18 @@ class ControllerProductProduct extends Controller {
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 
 
-			// Данные для попапа
-			/*$popup_data = array(
-				'name'				=> $data['heading_title'],
-				'articul'			=> $data['model'],
-				'price'				=> $data['price']
-			);
+			// картинки для 3D
+			$data['images_3d'] = array();
+			$data['images_3d_dir'] = '';
 
 			foreach ($data['attribute_groups'][0]['attribute'] as $attr) {
-				$popup_data[$attr['name']] = $attr['text'];
+				if ($attr['attribute_id'] == 17) {
+					$path_to_images_dir = DIR_IMAGE .'images3d/n'. $attr['text'];					
+					$data['images_3d'] = glob($path_to_images_dir ."/*.{jpg,png}", GLOB_BRACE);
+					$data['images_3d_dir'] = $path_to_images_dir .'/';
+				}
 			}
-
-			$data['popup_data'] = json_encode($popup_data);*/
-			// Данные для попапа
+			// картинки для 3D
 
 			$data['products'] = array();
 
@@ -692,16 +691,4 @@ class ControllerProductProduct extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
-
-	/*public function modal($product_id)
-	{
-		$data = array();
-		$this->load->model('catalog/product');
-
-		$product_info = $this->model_catalog_product->getProduct($product_id);
-
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($product_info));
-
-	}*/
 }
