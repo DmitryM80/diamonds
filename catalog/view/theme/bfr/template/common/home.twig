@@ -219,7 +219,7 @@
                       <div class="info-item"><span class="info-item-title">Артикул: </span>{{ brilliant.model }}</div>
                       
                       {% for attribute in brilliant.brilliant_attributes.0.attribute %}
-                        {% if attribute.attribute_id != 16 %} {# убираем огранку (id == 16) #}
+                        {% if attribute.attribute_id != 16 and attribute.attribute_id != 17 %} {# убираем огранку и 3д картинки (id == 16 и 17)  #}
 
                           <div class="info-item"><span class="info-item-title">{{ attribute.name }}: </span>{{ attribute.text }}</div>
 
