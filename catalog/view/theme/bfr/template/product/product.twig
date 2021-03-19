@@ -98,14 +98,19 @@
             <div class="row">
               <div class="col">
 
+                <b>Директория абс.</b>
+                <br>
+                  {{ images_3d_dir_abs }}
+                <br>
+                
                 <b>Директория</b>
                 <br>
                   {{ images_3d_dir }}
                 <br>
 
-                <b>картинки для 3D</b>
+                <b>картинки для 3D</b><br>
                 {% for image in images_3d %}
-                  {{ image }}
+                  <a href="{{ image }}" style="text-transform: lowercase;">{{ image }}</a><br>
                 {% endfor %}
                 <br>                
                 

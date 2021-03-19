@@ -393,12 +393,19 @@ class ControllerProductProduct extends Controller {
 			// картинки для 3D
 			$data['images_3d'] = array();
 			$data['images_3d_dir'] = '';
+			$data['images_3d_dir_abs'] = '';
 
 			foreach ($data['attribute_groups'][0]['attribute'] as $attr) {
 				if ($attr['attribute_id'] == 17) {
-					$path_to_images_dir = DIR_IMAGE .'images3d/n'. $attr['text'];					
-					$data['images_3d'] = glob($path_to_images_dir ."/*.{jpg,png}", GLOB_BRACE);
-					$data['images_3d_dir'] = $path_to_images_dir .'/';
+					
+					$data['images_3d_dir_abs'] = $path_to_images_dir_abs = DIR_IMAGE .'images3d/n'. $attr['text'];					
+					// $data['images_3d'] = glob($path_to_images_dir_abs ."/*.{jpg,png}", GLOB_BRACE);
+					$images_3d = array_diff( scandir($path_to_images_dir_abs ."/"), array('.', '..'));
+					$data['images_3d_dir'] = $images_3d_dir = '/image/images3d/n'. $attr['text'];
+
+					foreach ($images_3d as $img) {
+						$data['images_3d'][] = $images_3d_dir.'/'.$img;
+					}
 				}
 			}
 			// картинки для 3D
