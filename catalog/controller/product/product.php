@@ -280,6 +280,13 @@ class ControllerProductProduct extends Controller {
 				$data['thumb'] = '';
 			}
 
+			// $data['og_image'] = $this->document->setOgImage($data['thumb']);
+			$this->document->setOgImage($data['thumb']);
+			// $data['description'] = $this->document->setDescription($data['description']);
+			$this->document->setDescription($data['description']);
+
+			$data['share_image'] = $data['thumb'];
+
 			$data['images'] = array();
 
 			$results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);

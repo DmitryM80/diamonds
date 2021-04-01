@@ -97,14 +97,16 @@
                   </div>
                   <div class="product-description">
                     <h3>Описание</h3>
-                    <p>Этот круглый бриллиант 2.15 карат имеет отличные характеристики. Подойдет как для создания уникального украшения так и в качестве инвестиции. Прошел сертификацию GIA.</p>
+                    {# <p>Этот круглый бриллиант 2.15 карат имеет отличные характеристики. Подойдет как для создания уникального украшения так и в качестве инвестиции. Прошел сертификацию GIA.</p> #}
+                    <p>{{ description }}</p>
                   </div>
                   <div class="product-share-row">
-                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/facebook-app-logo.svg" alt="" class="img-svg"></a>
+                    {# <a href=""><img src="catalog/view/theme/bfr/image/share-ico/facebook-app-logo.svg" alt="" class="img-svg"></a>
                     <a href=""><img src="catalog/view/theme/bfr/image/share-ico/telegram.svg" alt="" class="img-svg"></a>
                     <a href=""><img src="catalog/view/theme/bfr/image/share-ico/whatsapp.svg" alt="" class="img-svg"></a>
                     <a href=""><img src="catalog/view/theme/bfr/image/share-ico/twitter.svg" alt="" class="img-svg"></a>
-                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/email.svg" alt="" class="img-svg"></a>
+                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/email.svg" alt="" class="img-svg"></a> #}
+                    <div class="ya-share2" data-image="{{ share_image }}" data-description="{{ description }}" data-shape="round" data-color-scheme="whiteblack" data-services="facebook,telegram,twitter,whatsapp"></div>
                   </div>
                 </div> 
               </div> 
