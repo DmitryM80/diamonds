@@ -43,6 +43,10 @@
   font-weight: normal;
   font-style: normal; }
 
+* {
+  outline: none;
+}
+
 body {
   background: url("../image/bcg-pic.jpg");
   background-repeat: no-repeat;
@@ -1626,6 +1630,7 @@ ul.navbar-menu li a {
   margin: 15px 0; }
 
 .product-card-full {
+  overflow: hidden;
   margin-bottom: 5px;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;

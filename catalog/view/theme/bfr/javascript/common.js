@@ -10,7 +10,7 @@ $(function() {
 	$('.slider-main').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		arrows: true,
+		arrows: false,
 		fade: true,
 		asNavFor: '.slider-nav',
 		infinite: true,
@@ -21,8 +21,9 @@ $(function() {
 		slidesToScroll: 1,
 		asNavFor: '.slider-main',
 		dots: false, 
-		arrows: true,
+		arrows: false,
 		infinite: true,
+		focusOnSelect: true
 	});
 
 	// бегущая строка

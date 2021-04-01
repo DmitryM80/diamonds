@@ -33,11 +33,13 @@
                 <div class="col-sm-6 col-img p-0">
                   <div class="slider-main">
                     
-                    <div class="mz-3dimages">
-                    {% for image in images_3d %}
-                    <img src="{{ image }}" alt="3D Image Frame">
-                    {% endfor %}
-                    </div>
+                    {% if images_3d %}
+                      <div class="mz-3dimages">
+                        {% for image in images_3d %}
+                          <img src="{{ image }}" alt="3D Image Frame">
+                        {% endfor %}
+                      </div>
+                    {% endif %}
 
                     {% for image in images %}
                       <div>
@@ -50,9 +52,12 @@
                   <div class="slider-nav">
                     {# Это надо заменить на первое (или любое) изображение из 3д превью #}
                     <!---->
-                    <div class="nav-pic">
-                        <img src="http://bestfriends.ru/image/cache/catalog/bfr_products/diamond-1-343x343.png" alt="Особый бриллиант 4.44  ">
-                    </div>
+                    {% if images_3d %}
+                      <div class="nav-pic">
+                        {# <img src="http://bestfriends.ru/image/cache/catalog/bfr_products/diamond-1-343x343.png" alt="Особый бриллиант 4.44  "> #}
+                          <img src="{{ images_3d | first }}" alt="{{ heading_title }}">
+                      </div>
+                    {% endif %}
                     <!---->
                     {# Это надо заменить на первое (или любое) изображение из 3д превью #}
 
@@ -127,8 +132,10 @@
                 let direction = 0;
                 
                 var mz3dimages = document.querySelector(".mz-3dimages");
-                let mz3dimagesTags = mz3dimages.querySelectorAll("img");
-                let images_per_width = mz3dimages.scrollWidth / (mz3dimages.getElementsByTagName("img").length - 1);
+                if (mz3dimages !== null) {
+                  let mz3dimagesTags = mz3dimages.querySelectorAll("img");
+                  let images_per_width = mz3dimages.scrollWidth / (mz3dimages.getElementsByTagName("img").length - 1);
+                
 
                 
                 mz3dimages.addEventListener("touchstart", function(event){
@@ -186,8 +193,10 @@
                             e.style.zIndex = 1;
                         })
 
-                        mz3dimages.children[counter].style.zIndex = 2;
-                        if( direction == 0 ) {
+                        if (mz3dimages.children[counter] !== undefined) {
+                          mz3dimages.children[counter].style.zIndex = 2;
+                        }
+                          if( direction == 0 ) {
                             counter++;
                         } else {
                             counter--;
@@ -201,6 +210,7 @@
                         }
                     }                    
                 },75)
+              }
             </script>
           {# картинки для 3D #}
 
