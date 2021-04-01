@@ -23,7 +23,7 @@
           <div class="row">
               <div class="col">
                 <div class="page-title-row justify-content-start">
-                  <h2 class="page-back-link"><a href="{{ home_link }}">< ВЕРНУТЬСЯ К ВЫБОРУ</a></h2> 
+                  <h2 class="page-back-link"><a href="{{ home_link }}">ВЕРНУТЬСЯ К ВЫБОРУ</a></h2> 
                 </div>
               </div>
           </div>
@@ -32,6 +32,12 @@
               <div class="card product-card  product-card-full p-0">
                 <div class="col-sm-6 col-img p-0">
                   <div class="slider-main">
+                    
+                    <div class="mz-3dimages">
+                    {% for image in images_3d %}
+                    <img src="{{ image }}" alt="3D Image Frame">
+                    {% endfor %}
+                    </div>
 
                     {% for image in images %}
                       <div>
@@ -40,7 +46,15 @@
                     {% endfor %}
 
                   </div>
+                  
                   <div class="slider-nav">
+                    {# Это надо заменить на первое (или любое) изображение из 3д превью #}
+                    <!---->
+                    <div class="nav-pic">
+                        <img src="http://bestfriends.ru/image/cache/catalog/bfr_products/diamond-1-343x343.png" alt="Особый бриллиант 4.44  ">
+                    </div>
+                    <!---->
+                    {# Это надо заменить на первое (или любое) изображение из 3д превью #}
 
                     {% for image in images %}
                       <div class="nav-pic">
@@ -92,11 +106,106 @@
             </div> 
           </div>  
 
+         
+            <style>
+                .mz-none {
+                    display: none;
+                }                
+                
+                .mz-3dimages img:not(:first-child) {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+            </style>
+            
+            <script>
+                let mover = false;
+                let counter = 0;
+                let prev_frame = 0;
+                let direction = 0;
+                
+                var mz3dimages = document.querySelector(".mz-3dimages");
+                let mz3dimagesTags = mz3dimages.querySelectorAll("img");
+                let images_per_width = mz3dimages.scrollWidth / (mz3dimages.getElementsByTagName("img").length - 1);
+
+                
+                mz3dimages.addEventListener("touchstart", function(event){
+                    mover = true;
+                });
+                
+                mz3dimages.addEventListener("touchmove", function(event){
+                    let ox = parseInt(event.targetTouches[0].pageX - mz3dimages.getBoundingClientRect().x);                    
+                    
+                    mz3dimagesTags.forEach(function(e){
+                        e.style.zIndex = 1;
+                    })
+                    
+                    let image_to_show = parseInt( ox / images_per_width );
+                    mz3dimages.children[image_to_show].style.zIndex = 2;
+                    counter = image_to_show;
+                    
+                    if (prev_frame > image_to_show ) {
+                        direction = 1;
+                    } else if(prev_frame < image_to_show ) {
+                        direction = 0;
+                    }
+                    prev_frame = image_to_show;
+                });
+                
+                mz3dimages.addEventListener("touchend", function(event){
+                    mover = false;
+                });
+                
+                
+                mz3dimages.addEventListener("mousemove", function(event){
+                    mover = true;
+                    mz3dimagesTags.forEach(function(e){
+                        e.style.zIndex = 1;
+                    })
+                    let image_to_show = parseInt( event.layerX / images_per_width );
+                    mz3dimages.children[image_to_show].style.zIndex = 2;
+                    counter = image_to_show;
+                    if (prev_frame > image_to_show ) {
+                        direction = 1;
+                    } else {
+                        direction = 0;
+                    }
+                    prev_frame = image_to_show;
+                });
+                
+                mz3dimages.addEventListener("mouseleave", function(event){
+                    mover = false;
+                })
+                
+                
+                setInterval(function(e){
+                    if( !mover ) {
+                        mz3dimagesTags.forEach(function(e){
+                            e.style.zIndex = 1;
+                        })
+
+                        mz3dimages.children[counter].style.zIndex = 2;
+                        if( direction == 0 ) {
+                            counter++;
+                        } else {
+                            counter--;
+                        }                        
+                        
+                        if( counter > mz3dimages.getElementsByTagName("img").length - 1) {
+                            counter = 0;
+                        }
+                        if( counter < 0 ) {
+                            counter = mz3dimages.getElementsByTagName("img").length - 1;
+                        }
+                    }                    
+                },75)
+            </script>
           {# картинки для 3D #}
 
           {% if images_3d %}
-            <div class="row">
-              <div class="col">
+            <div class="row mz-none">
 
                 <b>Директория абс.</b>
                 <br>
@@ -107,12 +216,7 @@
                 <br>
                   {{ images_3d_dir }}
                 <br>
-
-                <b>картинки для 3D</b><br>
-                {% for image in images_3d %}
-                  <a href="{{ image }}" style="text-transform: lowercase;">{{ image }}</a><br>
-                {% endfor %}
-                <br>                
+                
                 
               </div>
             </div>

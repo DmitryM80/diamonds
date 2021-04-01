@@ -14,6 +14,7 @@ $(function() {
 		fade: true,
 		asNavFor: '.slider-nav',
 		infinite: true,
+        swipe: false
 	});
 	$('.slider-nav').slick({
 		slidesToShow: 4,
