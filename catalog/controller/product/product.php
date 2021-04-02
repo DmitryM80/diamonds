@@ -283,9 +283,11 @@ class ControllerProductProduct extends Controller {
 			// $data['og_image'] = $this->document->setOgImage($data['thumb']);
 			$this->document->setOgImage($data['thumb']);
 			// $data['description'] = $this->document->setDescription($data['description']);
-			$this->document->setDescription($data['description']);
+			$data['share_description'] = strip_tags($data['description']);
+			$this->document->setDescription($data['share_description']);
 
 			$data['share_image'] = $data['thumb'];
+			$data['share_url'] = rawurlencode($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']));
 
 			$data['images'] = array();
 

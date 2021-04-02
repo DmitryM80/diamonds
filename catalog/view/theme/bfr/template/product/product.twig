@@ -101,12 +101,27 @@
                     <p>{{ description }}</p>
                   </div>
                   <div class="product-share-row">
-                    {# <a href=""><img src="catalog/view/theme/bfr/image/share-ico/facebook-app-logo.svg" alt="" class="img-svg"></a>
-                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/telegram.svg" alt="" class="img-svg"></a>
-                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/whatsapp.svg" alt="" class="img-svg"></a>
-                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/twitter.svg" alt="" class="img-svg"></a>
-                    <a href=""><img src="catalog/view/theme/bfr/image/share-ico/email.svg" alt="" class="img-svg"></a> #}
-                    <div class="ya-share2" data-image="{{ share_image }}" data-description="{{ description }}" data-shape="round" data-color-scheme="whiteblack" data-services="facebook,telegram,twitter,whatsapp"></div>
+
+                    <a href="https://www.facebook.com/sharer.php?src=sp&u={{ share_url }}&title={{ heading_title }}&description={{ share_description }}&picture={{ thumb }}&utm_source=share2" target="_blank">
+                      <img src="catalog/view/theme/bfr/image/share-ico/facebook-app-logo.svg" alt="facebook" class="img-svg">
+                    </a>
+
+                    <a href="https://t.me/share/url?url=http%3A%2F%2Fbestfriends.ru%2Findex.php%3Froute%3Dproduct%2Fproduct%26product_id%3D{{ product_id }}&text={{ heading_title }}&utm_source=share2" target="_blank">
+                      <img src="catalog/view/theme/bfr/image/share-ico/telegram.svg" alt="telegram" class="img-svg">
+                    </a>
+
+                    <a href="https://api.whatsapp.com/send?text={{ heading_title }}%20{{ share_url }}&utm_source=share2" target="_blank">
+                      <img src="catalog/view/theme/bfr/image/share-ico/whatsapp.svg" alt="whatsapp" class="img-svg">
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?text={{ heading_title }}&url={{ share_url }}&utm_source=share2" target="_blank">
+                      <img src="catalog/view/theme/bfr/image/share-ico/twitter.svg" alt="twitter" class="img-svg">
+                    </a>
+
+                    <a href="mailto:?subject={{ heading_title }}&amp;body={{ share_description }}%20{{ share_url }}" target="_blank">
+                      <img src="catalog/view/theme/bfr/image/share-ico/email.svg" alt="email" class="img-svg">
+                    </a>
+                    {# <div class="ya-share2" data-image="{{ share_image }}" data-description="{{ description }}" data-shape="round" data-color-scheme="whiteblack" data-services="facebook,telegram,twitter,whatsapp"></div> #}
                   </div>
                 </div> 
               </div> 
@@ -231,7 +246,6 @@
                 
                 
               </div>
-            </div>
           {% endif %}
 
           {# картинки для 3D #}
