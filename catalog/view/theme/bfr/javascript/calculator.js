@@ -22,7 +22,7 @@ const caratsQty = [
 ];
 
 const diamondAnimationSizes = [
-    [80, 34], [85, 33], [90, 32], [95, 30], [100, 29]
+    [50, 34], [55, 33], [60, 32], [65, 30], [70, 29]
 ];
 
 let     isDragging = false,

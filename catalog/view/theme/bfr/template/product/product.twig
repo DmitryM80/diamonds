@@ -35,7 +35,7 @@
                     
                     {% if images_3d %}
                       <div class="mz-3dimages">
-                        {% for image in images_3d %}
+                        {% for image in images_3d|reverse %}
                           <img src="{{ image }}" alt="3D Image Frame">
                         {% endfor %}
                       </div>
