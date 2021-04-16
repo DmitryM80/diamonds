@@ -13,9 +13,33 @@ class ControllerCommonHome extends Controller {
 			$this->document->addLink($canonical, 'canonical');
 		}
 
+		$this->load->language('common/home');
 		$this->load->model('catalog/product');
 		$this->load->model('tool/image');
-		$brilliants = $this->model_catalog_product->getProducts(array('filter_category_id' => 59));
+
+		if (isset($this->request->get['sort'])) {
+			$sort = $this->request->get['sort'];
+			$this->document->setRobots('noindex,follow');
+		} else {
+			$sort = 'p.sort_order';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = $this->request->get['order'];
+			$this->document->setRobots('noindex,follow');
+		} else {
+			$order = 'ASC';
+		}		
+
+		$filter_data = array(
+			'filter_category_id' => 59,
+			'sort'               => $sort,
+			'order'              => $order
+		);
+
+
+		// $brilliants = $this->model_catalog_product->getProducts(array('filter_category_id' => 59));
+		$brilliants = $this->model_catalog_product->getProducts($filter_data);
 		$data['brilliants'] = array();
 
 		foreach ($brilliants as $brilliant) {
@@ -26,9 +50,35 @@ class ControllerCommonHome extends Controller {
 		}
 
 		$data['ct'] = 'ct';
-		// dp($data['brilliants']);
 
-		// $data['wishlist'] = $this->url->link('account/wishlist', '', true);
+		$url = '#nav-profile';
+		
+		$data['sorts'] = array();
+
+		$data['sorts'][] = array(
+			'text'  => $this->language->get('text_price_asc'),
+			'value' => 'p.price-ASC',
+			'href'  => $this->url->link('common/home', '&sort=p.price&order=ASC' . $url)
+		);
+
+		$data['sorts'][] = array(
+			'text'  => $this->language->get('text_price_desc'),
+			'value' => 'p.price-DESC',
+			'href'  => $this->url->link('common/home', '&sort=p.price&order=DESC' . $url)
+		);
+
+		$data['sorts'][] = array(
+			'text'  => $this->language->get('text_weight_asc'),
+			'value' => 'p.weight-ASC',
+			'href'  => $this->url->link('common/home', '&sort=p.weight&order=ASC' . $url)
+		);
+
+		$data['sorts'][] = array(
+			'text'  => $this->language->get('text_weight_desc'),
+			'value' => 'p.weight-DESC',
+			'href'  => $this->url->link('common/home', '&sort=p.weight&order=DESC' . $url)
+		);
+		
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

@@ -194,7 +194,7 @@
                 <div class="page-title-row">
                   <h2 class="page-title">Выберите уникальный бриллиант</h2>
                   <div class="filter-link">
-                    <span class="filter-ico"></span>
+                    <span class="filter-ico"></span>                    
                   </div>
                 </div>
               </div>
@@ -243,5 +243,30 @@
   </div>
   
   <script src="catalog/view/theme/bfr/javascript/calculator.js?v10032102" type="text/javascript"></script>
+
+  <!-- Sorting -->
+  <div id="sorting" class="modal fade sorting" role="dialog">
+    <div class="modal-dialog modal-dialog-centered"> 
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Сортировка</h4>
+          <div class="sorting">
+            
+              {% for sorts in sorts %}             
+                <a href="{{ sorts.href }}">{{ sorts.text }}</a>
+              {% endfor %}
+            
+          </div>
+          <div class="modal-button-wrapper">
+            <button data-dismiss="modal" class="main-btn">Закрыть окно</button>
+          </div>
+      </div> 
+      </div> 
+    </div>
+  </div>
 
 {{ footer }}

@@ -79,6 +79,11 @@ $(function() {
 		$(window.location.hash + '-tab').click();
 	}
 
+	// sorting modal
+	$('.filter-ico').on('click', function() {
+		$('#sorting').modal();
+	});
+
 	// menu scroll
 	/*$('button.navbar-toggler').on('click',  function() {
 		if ($('#navbarCollapse').is(':visible')) {
