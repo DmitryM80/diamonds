@@ -31,23 +31,29 @@ $(function() {
 
 		var navindex = $(this).parent().data('navindex');
 		if (navindex == 0) {
-			// cert.modal
-			console.log('3d');
 			$('#3d-viewer').show();
 			$('#static-img-viewer img').hide();
+		} else if (navindex == 1) {
+			$('#3d-viewer').hide();
+			$('#static-img-viewer img').show();
+			$('#static-img-viewer img').attr('src', $('.nav-pic img')[0].src);
 		} else if (navindex == 2) {
-			// cert.modal
-			console.log('cert.modal');
 			$('#certificate-modal').modal();
 		} else if (navindex == 3) {
 			// ring.modal
 			console.log('ring.modal');
-		} else {
+		} /* else {
 			$('#3d-viewer').hide();
 			$('#static-img-viewer img').show();
 			$('#static-img-viewer img').attr('src', this.src);
-		}		
-	})
+		} */		
+	});
+
+	// certificate link
+	$('.doc-link').on('click', function(e) {
+		e.preventDefault();
+		$('#certificate-modal').modal();
+	});
 
 	// бегущая строка
 	$('.running-string').slick({
