@@ -7,7 +7,7 @@ $(function() {
 	});
 
 	// product slider
-	/* $('.slider-main').slick({
+	$('.slider-main').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
@@ -24,24 +24,7 @@ $(function() {
 		arrows: false,
 		infinite: true,
 		focusOnSelect: true
-	}); */
-
-	// product images
-	$('.nav-pic img').on('click', function() {
-
-		var navindex = $(this).parent().data('navindex');
-		if (navindex == 2) {
-			// cert.modal
-			console.log('cert.modal');
-			$('#certificate-modal').modal();
-		} else if (navindex == 3) {
-			// ring.modal
-			console.log('ring.modal');
-		} else {
-			$('#3d-viewer').hide();
-			$('.main-img-wrapper img').attr('src', this.src);
-		}		
-	})
+	});
 
 	// бегущая строка
 	$('.running-string').slick({

@@ -1613,8 +1613,15 @@ ul.navbar-menu li a {
   .page-back-link a {
     color: #FFF; }
 
+.slider-nav {
+  background-color: #fff;
+}
 .nav-pic {
-  padding: 10px; }
+  padding: 10px;
+  /* no slick */
+  display: inline-block;
+  width: 24%;
+}
   .nav-pic img {
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -1734,6 +1741,39 @@ ul.navbar-menu li a {
     .product-card-full .main-btn {
       padding: 10px;
       font-size: 16px; } }
+
+
+/* main image 1:1 */
+.slider-main {
+  width: 100%;
+  background-color: transparent;
+  padding-top: 100%;
+  position: relative;
+}
+.main-img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+/* main image 1:1 */
+
+/* certificate modal */
+#certificate-modal .modal-body {
+  text-align: center;
+}
+#certificate-modal .cert-view-description {
+  font-size: 16px;
+}
+#certificate-modal .igi-logo {
+  padding: 30px 0;
+}
+#certificate-modal .modal-title {
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+/* certificate modal */
 
 .product-description {
   margin: 15px 0; }
