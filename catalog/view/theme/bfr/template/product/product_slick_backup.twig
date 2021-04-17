@@ -33,7 +33,6 @@
                 <div class="col-sm-6 col-img p-0">
                   <div class="slider-main">
                     
-                    <div id="3d-viewer" class="main-img-wrapper">
                     {% if images_3d %}
                       <div class="mz-3dimages">
                         {% for image in images_3d|reverse %}
@@ -41,35 +40,29 @@
                         {% endfor %}
                       </div>
                     {% endif %}
-                    </div>
 
-                    {#% for image in images %}
+                    {% for image in images %}
                       <div>
                         <img src="{{ image.thumb }}" alt="{{ heading_title }}">
                       </div>
-                    {% endfor %#}
-
-                    <div class="main-img-wrapper">
-                      <img src="{{ thumb }}" alt="{{ heading_title }}">
-                    </div>
+                    {% endfor %}
 
                   </div>
                   
                   <div class="slider-nav">
                     {# Это надо заменить на первое (или любое) изображение из 3д превью #}
                     <!---->
-                    {#% if images_3d %}
+                    {% if images_3d %}
                       <div class="nav-pic">
+                        {# <img src="http://bestfriends.ru/image/cache/catalog/bfr_products/diamond-1-343x343.png" alt="Особый бриллиант 4.44  "> #}
                           <img src="{{ images_3d | first }}" alt="{{ heading_title }}">
                       </div>
-                    {% endif %#}
+                    {% endif %}
                     <!---->
                     {# Это надо заменить на первое (или любое) изображение из 3д превью #}
-                    <div class="nav-pic" data-navindex="0">
-                      <img src="{{ thumb }}" alt="{{ heading_title }}">
-                    </div>
+
                     {% for image in images %}
-                      <div class="nav-pic" data-navindex="{{ loop.index }}">
+                      <div class="nav-pic">
                         <img src="{{ image.thumb }}" alt="{{ heading_title }}">
                       </div>
                     {% endfor %}
@@ -368,44 +361,6 @@
       <div class="modal-footer"> 
         <a href="#"  data-dismiss="modal" class="trans-btn">Продолжить покупки</a>
         <a href="{{ cart_link }}" class="main-btn confirm-order">Оформить заказ</a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Certificate Modal -->
-<div id="certificate-modal" class="modal fade certificate-modal" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-
-    <!-- Modal content-->
-    <div class="modal-content" style="max-width: none;">
-      <div class="modal-header">
-      </div>
-      <div class="modal-body">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              
-              <img src="/image/igi-logo.png" alt="IGI logo" class="igi-logo" style="padding: 30px 0;">
-                
-              <h4 class="modal-title">Этот бриллиант поставляется с сертификатом GIA</h4>
-              
-              <p class="cert-view-description">
-                Чтобы посмотреть копию сертификата, пожалуйста, свяжитесть с нашей службой поддержки клиентов.
-              </p>
-              <p class="cert-view-description">
-                <a href="tel:+77777777777">+7(777)777-77-77</a>
-              </p>
-              <p class="cert-view-description">
-                Или напишите удобным для вас способом:
-              </p>
-              <div class="product-share-row"> 
-                <a href=""><img src="/image/share-ico/telegram.svg" alt="" class="img-svg"></a>
-                <a href=""><img src="/image/share-ico/whatsapp.svg" alt="" class="img-svg"></a> 
-                <a href=""><img src="/image/share-ico/email.svg" alt="" class="img-svg"></a>
-              </div>
-      </div>
-      <div class="modal-footer"> 
-        <button  data-dismiss="modal" class="main-btn">Закрыть</button>
       </div>
     </div>
 
