@@ -298,7 +298,7 @@ button.main-btn.wishlist-incart {
   background-image: url("../image/dn-arrow.png");
   margin-bottom: -2px;
   background-position: center bottom;
-  background-size: 35%;
+  background-size: 25%;
   background-repeat: no-repeat;
 }
 .diamond-lower-arrow {
@@ -306,10 +306,9 @@ button.main-btn.wishlist-incart {
   background-image: url("../image/up-arrow.png");
   margin-top: -2px;
   background-position: center top;
-  background-size: 35%;
+  background-size: 25%;
   background-repeat: no-repeat;
 }
-
 .diamond-rs {
   text-align: center;
 }
