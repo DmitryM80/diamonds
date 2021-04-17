@@ -30,7 +30,12 @@ $(function() {
 	$('.nav-pic img').on('click', function() {
 
 		var navindex = $(this).parent().data('navindex');
-		if (navindex == 2) {
+		if (navindex == 0) {
+			// cert.modal
+			console.log('3d');
+			$('#3d-viewer').show();
+			$('#static-img-viewer img').hide();
+		} else if (navindex == 2) {
 			// cert.modal
 			console.log('cert.modal');
 			$('#certificate-modal').modal();
@@ -39,7 +44,8 @@ $(function() {
 			console.log('ring.modal');
 		} else {
 			$('#3d-viewer').hide();
-			$('.main-img-wrapper img').attr('src', this.src);
+			$('#static-img-viewer img').show();
+			$('#static-img-viewer img').attr('src', this.src);
 		}		
 	})
 
