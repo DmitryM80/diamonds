@@ -298,7 +298,7 @@ button.main-btn.wishlist-incart {
   background-image: url("../image/dn-arrow.png");
   margin-bottom: -2px;
   background-position: center bottom;
-  background-size: 35%;
+  background-size: 25%;
   background-repeat: no-repeat;
 }
 .diamond-lower-arrow {
@@ -306,10 +306,9 @@ button.main-btn.wishlist-incart {
   background-image: url("../image/up-arrow.png");
   margin-top: -2px;
   background-position: center top;
-  background-size: 35%;
+  background-size: 25%;
   background-repeat: no-repeat;
 }
-
 .diamond-rs {
   text-align: center;
 }
@@ -2687,4 +2686,65 @@ form .main-btn {
 
 div#navbarCollapse {
     height: 100vh !important;
+}
+
+/* Sortin */
+.sorting a{
+  font-size: 12px;
+    color: #666;
+  text-align: center;
+}
+.sorting .modal-title{
+    background: #cacbd0;
+    padding: 5px;
+    font-size: 18px;
+}
+.sorting.modal .sorting {
+    padding: 15px 0;
+}
+.sorting .modal-dialog .modal-content{
+  background: #f0f1f3; 
+  padding-top: 30px;
+}
+.sorting .modal-dialog .modal-body{
+  padding-top: 0px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+    background: #d4d7de;
+    position: static;
+}
+.modal.sorting .close {
+    font-size: 14px;
+    color: cornflowerblue;
+    opacity: 1;
+    line-height: 0;
+    padding: 0 10px;
+    position: absolute;
+    right: 0px;
+    top: 15px; 
+    font-weight: 500; 
+    text-shadow: none; 
+}
+  @media (max-width: 767px) { 
+
+.sorting .modal-dialog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 100% !important;
+  margin: 0;
+  transform: translateY(100%) !important;
+}
+.sorting .modal-dialog .modal-content {
+  border-radius: 0;
+}
+.sorting.show {
+  overflow: hidden;
+}
+.sorting.show .modal-dialog {
+  transform: translateY(0%) !important;
+  min-height: 80px;
+}
 }
