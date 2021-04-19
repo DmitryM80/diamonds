@@ -1779,6 +1779,65 @@ ul.navbar-menu li a {
 }
 /* certificate modal */
 
+/* ring modal */
+.ring-modal-img-wrapper {
+  margin-top: 20px;
+}
+.ring-modal-img-wrapper img {
+  max-width: 100%;
+}
+.range-slider-wrapper {
+  padding: 20px 0;
+  text-align: center;
+}
+.range-slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 70%;
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.range-slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #4CAF50; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+.min-range, .max-range {
+  display: inline-block;
+  padding: 5px;
+}
+.range-line {
+  margin-bottom: 10px;
+}
+.range-mark {
+  position: relative;
+}
+.range-mark::after {
+  position: absolute;
+  top: 15px;
+  left: 4px;
+  content: "";
+  width: 2px;
+  height: 7px;
+  background-color: #555;
+}
+/* ring modal */
+
 .product-description {
   margin: 15px 0; }
   @media (min-width: 1441px) {

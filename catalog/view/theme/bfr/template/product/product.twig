@@ -412,5 +412,45 @@
   </div>
 </div> #}
 
+  <!-- Ring Modal -->
+  <div id="ring-modal" class="modal fade ring-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+  
+      <!-- Modal content-->
+      <div class="modal-content" style="max-width: none;">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <div id="ring-img" class="ring-modal-img-wrapper">
+                  <img src="/image/ring_img/qq1.png" alt="ring">
+                </div>
+                
+                
+                <div class="range-slider-wrapper">
+                  <div class="range-line">
+                    <span class="range-mark rm05">0.5</span>
+                    <span class="range-mark rm07">0.7</span>
+                    <span class="range-mark rm1">1</span>
+                    <span class="range-mark rm15">1.5</span>
+                    <span class="range-mark rm2">2</span>
+                    <span class="range-mark rm3">3</span>
+                    <span class="range-mark rm4">4</span>
+                  </div>
+                  <div class="min-range">0.3ct</div>
+                  <input type="range" min="0" max="9" value="3" step="0.1" class="range-slider" id="ring-slider">
+                  <div class="max-range">5ct</div>
+                </div>
+                
+        </div>
+        <div class="modal-footer"> 
+          <button  data-dismiss="modal" class="main-btn">Закрыть</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
 
 {{ footer }} 

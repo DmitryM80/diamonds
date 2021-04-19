@@ -42,6 +42,7 @@ $(function() {
 		} else if (navindex == 3) {
 			// ring.modal
 			console.log('ring.modal');
+			$('#ring-modal').modal();
 		} /* else {
 			$('#3d-viewer').hide();
 			$('#static-img-viewer img').show();
@@ -53,6 +54,37 @@ $(function() {
 	$('.doc-link').on('click', function(e) {
 		e.preventDefault();
 		$('#certificate-modal').modal();
+	});
+
+	// ring slider
+	var ringImagesPath = '/image/ring_img/';
+	var imageExt = '.png';
+	$('#ring-slider').on('input', function() {
+		console.log(this.value);
+		if (this.value <= 1) {
+			$('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
+		}
+		if (this.value >= 2) {
+			$('#ring-img img').attr('src', ringImagesPath + 2 + imageExt);
+		}
+		if (this.value >= 3) {
+			$('#ring-img img').attr('src', ringImagesPath + 3 + imageExt);
+		}
+		if (this.value >= 4) {
+			$('#ring-img img').attr('src', ringImagesPath + 4 + imageExt);
+		}
+		if (this.value >= 5) {
+			$('#ring-img img').attr('src', ringImagesPath + 6 + imageExt);
+		}
+		if (this.value >= 6) {
+			$('#ring-img img').attr('src', ringImagesPath + 7 + imageExt);
+		}
+		if (this.value >= 7) {
+			$('#ring-img img').attr('src', ringImagesPath + 8 + imageExt);
+		}
+		if (this.value >= 8) {
+			$('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
+		}
 	});
 
 	// бегущая строка
