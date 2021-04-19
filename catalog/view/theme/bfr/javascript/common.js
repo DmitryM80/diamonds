@@ -28,7 +28,6 @@ $(function() {
 
 	// product images
 	$('.nav-pic img').on('click', function() {
-
 		var navindex = $(this).parent().data('navindex');
 		if (navindex == 0) {
 			$('#3d-viewer').show();
@@ -40,14 +39,8 @@ $(function() {
 		} else if (navindex == 2) {
 			$('#certificate-modal').modal();
 		} else if (navindex == 3) {
-			// ring.modal
-			console.log('ring.modal');
 			$('#ring-modal').modal();
-		} /* else {
-			$('#3d-viewer').hide();
-			$('#static-img-viewer img').show();
-			$('#static-img-viewer img').attr('src', this.src);
-		} */		
+		}		
 	});
 
 	// certificate link
@@ -60,30 +53,29 @@ $(function() {
 	var ringImagesPath = '/image/ring_img/';
 	var imageExt = '.png';
 	$('#ring-slider').on('input', function() {
-		console.log(this.value);
-		if (this.value <= 1) {
+		if (this.value <= 0.5) {
 			$('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
 		}
-		if (this.value >= 2) {
+		if (this.value >= 0.6 && this.value <= 2.2) {
 			$('#ring-img img').attr('src', ringImagesPath + 2 + imageExt);
 		}
-		if (this.value >= 3) {
+		if (this.value >= 2.3 && this.value <= 3.5) {
 			$('#ring-img img').attr('src', ringImagesPath + 3 + imageExt);
 		}
-		if (this.value >= 4) {
+		if (this.value >= 3.6 && this.value <= 4.8) {
 			$('#ring-img img').attr('src', ringImagesPath + 4 + imageExt);
 		}
-		if (this.value >= 5) {
+		if (this.value >= 4.9 && this.value <= 6.2) {
 			$('#ring-img img').attr('src', ringImagesPath + 6 + imageExt);
 		}
-		if (this.value >= 6) {
+		if (this.value >= 6.3 && this.value <= 7.3) {
 			$('#ring-img img').attr('src', ringImagesPath + 7 + imageExt);
 		}
-		if (this.value >= 7) {
+		if (this.value >= 7.3 && this.value <= 8.4) {
 			$('#ring-img img').attr('src', ringImagesPath + 8 + imageExt);
 		}
-		if (this.value >= 8) {
-			$('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
+		if (this.value >= 8.5) {
+			$('#ring-img img').attr('src', ringImagesPath + 9 + imageExt);
 		}
 	});
 

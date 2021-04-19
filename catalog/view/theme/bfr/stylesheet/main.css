@@ -1780,7 +1780,7 @@ ul.navbar-menu li a {
 
 /* ring modal */
 .ring-modal-img-wrapper {
-  margin-top: 20px;
+  margin: 20px 0 10px;
 }
 .ring-modal-img-wrapper img {
   max-width: 100%;
@@ -1793,7 +1793,7 @@ ul.navbar-menu li a {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
   width: 70%;
-  height: 25px; /* Specified height */
+  height: 5px; /* Specified height */
   background: #d3d3d3; /* Grey background */
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
@@ -1804,24 +1804,28 @@ ul.navbar-menu li a {
 .range-slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  width: 30px; /* Set a specific slider handle width */
+  height: 30px; /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
+  background-image: url("/image/pointer.png");
+  background-size: contain;
 }
 
 .range-slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  width: 30px; /* Set a specific slider handle width */
+  height: 30px; /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
+  background-image: url("/image/pointer.png");
+  background-size: contain;
 }
 .min-range, .max-range {
   display: inline-block;
   padding: 5px;
 }
 .range-line {
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
+  width: 60%;
+  height: 30px;
 }
 .range-mark {
   position: relative;
@@ -1834,6 +1838,30 @@ ul.navbar-menu li a {
   width: 2px;
   height: 7px;
   background-color: #555;
+}
+span.range-mark.rm05 {
+  margin-right: 10px;
+}
+span.range-mark.rm07 {
+  margin-right: 10px;
+}
+span.range-mark.rm1 {
+  margin-right: 10px;
+}
+span.range-mark.rm15 {
+  margin-right: 10px;
+}
+span.range-mark.rm2 {
+  margin-right: 10px;
+}
+span.range-mark.rm3 {
+  margin-right: 10px;
+}
+span.range-mark.rm4 {
+  margin-right: 10px;
+}
+.range-mark.rm05::after, .range-mark.rm07::after, .range-mark.rm15::after {
+  left: 10px;
 }
 /* ring modal */
 
