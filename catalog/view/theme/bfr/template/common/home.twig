@@ -218,7 +218,7 @@
                       <div class="like-btn" onclick="wishlist.add('{{ brilliant.product_id }}');"><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></div>
                     </div>
                     <div class="card-body info-panel">
-                      <div class="info-item"><span class="info-item-title">Артикул: </span>{{ brilliant.model }}</div>
+                      {# <div class="info-item"><span class="info-item-title">Артикул: </span>{{ brilliant.model }}</div> #}
                       
                       {% for attribute in brilliant.brilliant_attributes.0.attribute %}
                         {% if attribute.attribute_id != 16 and attribute.attribute_id != 17 %} {# убираем огранку и 3д картинки (id == 16 и 17)  #}
