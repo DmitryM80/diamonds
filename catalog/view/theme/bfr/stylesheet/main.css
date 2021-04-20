@@ -1785,10 +1785,13 @@ ul.navbar-menu li a {
 
 /* ring modal */
 .ring-modal-img-wrapper {
-  margin: 20px 0 10px;
+  position: relative;
+  margin: 20px auto 10px;
   height: 325px;
+  width: 325px;
   background-image: url("/image/ring_img/qq.png");
   background-size: cover;
+  overflow: hidden;
 }
 .ring-modal-img-wrapper img {
   max-width: 100%;
@@ -1797,7 +1800,7 @@ ul.navbar-menu li a {
   height: 325px;
   position: absolute;
   left: -3px;
-  top: 40px;
+  top: 5px;
 }
 .diamon-size-img {
   height: 100%;
