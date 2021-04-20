@@ -27,6 +27,7 @@ $(function() {
 	}); */
 
 	// product images
+	// var ringImage = $('#ring-img').width();
 	$('.nav-pic img').on('click', function() {
 		var navindex = $(this).parent().data('navindex');
 		if (navindex == 0) {
@@ -35,11 +36,16 @@ $(function() {
 		} else if (navindex == 1) {
 			$('#3d-viewer').hide();
 			$('#static-img-viewer img').show();
-			$('#static-img-viewer img').attr('src', $('.nav-pic img')[0].src);
+			// $('#static-img-viewer img').attr('src', $('.nav-pic img')[0].src);
+			$('#static-img-viewer img').attr('src', this.src);
 		} else if (navindex == 2) {
 			$('#certificate-modal').modal();
 		} else if (navindex == 3) {
 			$('#ring-modal').modal();
+			setTimeout(function() {
+				$('#diamond-sizes').css('width', ($('#ring-img').width()) * 9);
+				$('#diamond-sizes').css('left', -3 - ($('#ring-img').width() * 2));
+			}, 200);
 		}		
 	});
 
@@ -54,30 +60,41 @@ $(function() {
 	var imageExt = '.png';
 	$('#ring-slider').on('input', function() {
 		if (this.value <= 0.5) {
-			$('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
+			$('#diamond-sizes').css('left', -3);
 		}
 		if (this.value >= 0.6 && this.value <= 2.2) {
-			$('#ring-img img').attr('src', ringImagesPath + 2 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 2 + imageExt);
+			$('#diamond-sizes').css('left', -$('#ring-img').width() - 3);
 		}
 		if (this.value >= 2.3 && this.value <= 3.5) {
-			$('#ring-img img').attr('src', ringImagesPath + 3 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 3 + imageExt);
+			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 2);
 		}
 		if (this.value >= 3.6 && this.value <= 4.8) {
-			$('#ring-img img').attr('src', ringImagesPath + 4 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 4 + imageExt);
+			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 3);
 		}
 		if (this.value >= 4.9 && this.value <= 6.2) {
-			$('#ring-img img').attr('src', ringImagesPath + 6 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 6 + imageExt);
+			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 4);
 		}
 		if (this.value >= 6.3 && this.value <= 7.3) {
-			$('#ring-img img').attr('src', ringImagesPath + 7 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 7 + imageExt);
+			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 5);
 		}
 		if (this.value >= 7.3 && this.value <= 8.4) {
-			$('#ring-img img').attr('src', ringImagesPath + 8 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 8 + imageExt);
+			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 6);
 		}
 		if (this.value >= 8.5) {
-			$('#ring-img img').attr('src', ringImagesPath + 9 + imageExt);
+			// $('#ring-img img').attr('src', ringImagesPath + 9 + imageExt);
+			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 7);
 		}
 	});
+
+	
+	// $('#ring-img').width()
 
 	// бегущая строка
 	$('.running-string').slick({

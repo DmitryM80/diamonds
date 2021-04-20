@@ -1385,7 +1385,8 @@ ul.navbar-menu li a {
     position: relative; }
     .product-card .head-panel .product-title {
       font-size: 12px;
-      padding-right: 20px; }
+      padding-right: 20px;
+      font-weight: bold; }
       @media (min-width: 991px) {
         .product-card .head-panel .product-title {
           font-size: 16px; } }
@@ -1785,9 +1786,22 @@ ul.navbar-menu li a {
 /* ring modal */
 .ring-modal-img-wrapper {
   margin: 20px 0 10px;
+  height: 325px;
+  background-image: url("/image/ring_img/qq.png");
+  background-size: cover;
 }
 .ring-modal-img-wrapper img {
   max-width: 100%;
+}
+#diamond-sizes {
+  height: 325px;
+  position: absolute;
+  left: -3px;
+}
+.diamon-size-img {
+  height: 100%;
+  display: block;
+  float: left;
 }
 .range-slider-wrapper {
   padding: 20px 0;
