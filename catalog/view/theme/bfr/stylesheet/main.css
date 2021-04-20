@@ -1797,11 +1797,13 @@ ul.navbar-menu li a {
   height: 325px;
   position: absolute;
   left: -3px;
+  top: 40px;
 }
 .diamon-size-img {
   height: 100%;
   display: block;
   float: left;
+  transform: scale(0.54);
 }
 .range-slider-wrapper {
   padding: 20px 0;
@@ -1830,9 +1832,12 @@ ul.navbar-menu li a {
 }
 
 .range-slider::-moz-range-thumb {
+  -moz-appearance: none;
+  border: none;
   width: 30px; /* Set a specific slider handle width */
   height: 30px; /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
+  background-color: transparent;
   background-image: url("/image/pointer.png");
   background-size: contain;
 }
@@ -1842,7 +1847,7 @@ ul.navbar-menu li a {
 }
 .range-line {
   margin: 0 auto 10px;
-  width: 60%;
+  width: 62%;
   height: 30px;
 }
 .range-mark {
@@ -1858,13 +1863,13 @@ ul.navbar-menu li a {
   background-color: #555;
 }
 span.range-mark.rm05 {
-  margin-right: 10px;
+  margin-right: 6px;
 }
 span.range-mark.rm07 {
   margin-right: 10px;
 }
 span.range-mark.rm1 {
-  margin-right: 10px;
+  margin-right: 6px;
 }
 span.range-mark.rm15 {
   margin-right: 10px;

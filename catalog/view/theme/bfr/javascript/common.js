@@ -43,8 +43,12 @@ $(function() {
 		} else if (navindex == 3) {
 			$('#ring-modal').modal();
 			setTimeout(function() {
-				$('#diamond-sizes').css('width', ($('#ring-img').width()) * 9);
-				$('#diamond-sizes').css('left', -3 - ($('#ring-img').width() * 2));
+				var rIW = 325;
+				$('#ring-slider').val(3.5);
+				// $('#diamond-sizes').css('width', ($('#ring-img').width()) * 9);
+				$('#diamond-sizes').css('width', rIW * 9);
+				// $('#diamond-sizes').css('left', -3 - ($('#ring-img').width() * 2));
+				$('#diamond-sizes').css('left', -4 - rIW * 2);
 			}, 200);
 		}		
 	});
@@ -58,38 +62,46 @@ $(function() {
 	// ring slider
 	var ringImagesPath = '/image/ring_img/';
 	var imageExt = '.png';
+	var ringImgWidth = 325;
 	$('#ring-slider').on('input', function() {
 		if (this.value <= 0.5) {
 			// $('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
-			$('#diamond-sizes').css('left', -3);
+			$('#diamond-sizes').css('left', -4);
 		}
 		if (this.value >= 0.6 && this.value <= 2.2) {
 			// $('#ring-img img').attr('src', ringImagesPath + 2 + imageExt);
-			$('#diamond-sizes').css('left', -$('#ring-img').width() - 3);
+			// $('#diamond-sizes').css('left', -$('#ring-img').width() - 3);
+			$('#diamond-sizes').css('left', -ringImgWidth - 3);
 		}
 		if (this.value >= 2.3 && this.value <= 3.5) {
 			// $('#ring-img img').attr('src', ringImagesPath + 3 + imageExt);
-			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 2);
+			// $('#diamond-sizes').css('left', -4 - $('#ring-img').width() * 2);
+			$('#diamond-sizes').css('left', -4 - ringImgWidth * 2);
 		}
 		if (this.value >= 3.6 && this.value <= 4.8) {
 			// $('#ring-img img').attr('src', ringImagesPath + 4 + imageExt);
-			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 3);
+			// $('#diamond-sizes').css('left', -4 - $('#ring-img').width() * 3);
+			$('#diamond-sizes').css('left', -4 - ringImgWidth * 3);
 		}
 		if (this.value >= 4.9 && this.value <= 6.2) {
 			// $('#ring-img img').attr('src', ringImagesPath + 6 + imageExt);
-			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 4);
+			// $('#diamond-sizes').css('left', -4 - $('#ring-img').width() * 4);
+			$('#diamond-sizes').css('left', -4 - ringImgWidth * 4);
 		}
 		if (this.value >= 6.3 && this.value <= 7.3) {
 			// $('#ring-img img').attr('src', ringImagesPath + 7 + imageExt);
-			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 5);
+			// $('#diamond-sizes').css('left', -4 - $('#ring-img').width() * 5);
+			$('#diamond-sizes').css('left', -4 - ringImgWidth * 5);
 		}
 		if (this.value >= 7.3 && this.value <= 8.4) {
 			// $('#ring-img img').attr('src', ringImagesPath + 8 + imageExt);
-			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 6);
+			// $('#diamond-sizes').css('left', -4 - $('#ring-img').width() * 6);
+			$('#diamond-sizes').css('left', -4 - ringImgWidth * 6);
 		}
 		if (this.value >= 8.5) {
 			// $('#ring-img img').attr('src', ringImagesPath + 9 + imageExt);
-			$('#diamond-sizes').css('left', -3 - $('#ring-img').width() * 7);
+			// $('#diamond-sizes').css('left', -4 - $('#ring-img').width() * 7);
+			$('#diamond-sizes').css('left', -4 - ringImgWidth * 7);
 		}
 	});
 
