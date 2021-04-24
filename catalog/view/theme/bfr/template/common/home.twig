@@ -252,14 +252,15 @@
         <div class="modal-header">
         </div>
         <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal">Готово</button>
+          <a href="{{ sorts | first.href }}" class="close">Готово</a>
           <h4 class="modal-title">Сортировка</h4>
           <div class="sorting">
-            
-              {% for sorts in sorts %}             
-                <a href="{{ sorts.href }}">{{ sorts.text }}</a>
+            <div id="sorting-list">
+              <br>              
+              {% for sort in sorts %}
+                <a href="{{ sort.href }}" class="sorting-{{ loop.index }}">{{ sort.text }}</a>
               {% endfor %}
-            
+            </div>
           </div>
       </div> 
       </div> 
