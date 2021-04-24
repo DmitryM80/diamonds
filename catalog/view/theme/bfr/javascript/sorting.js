@@ -1,6 +1,10 @@
 const   sortingList = document.getElementById('sorting-list'),
         sortElements = $('#sorting-list a');
 
+$('#sorting-list a').on('click', function(e) {
+    e.preventDefault()
+});
+
 let     isDraggingSorting = false,
         startPosSorting = 0,
         currentTranslateSorting = 0,
