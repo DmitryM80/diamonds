@@ -2829,12 +2829,10 @@ div#navbarCollapse {
   a.sorting-r3 {
     transform: perspective(100px) rotateX(15deg);
     font-size: 10px;
-    letter-spacing: 0.8px;
   }
   a.sorting-r4 {
     transform: perspective(100px) rotateX(12deg);
     font-size: 9px;
-    letter-spacing: 0.8px;
   }
 }
 /* Sorting */

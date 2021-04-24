@@ -111,6 +111,8 @@ function sortingDn() {
         sortElements[currentIndexSorting + 1].className = 'sorting-2';
         if (sortElements[currentIndexSorting - 1] !== undefined)
             sortElements[currentIndexSorting - 1].className = 'sorting-r2';
+        if (sortElements[currentIndexSorting - 2] !== undefined)
+            sortElements[currentIndexSorting - 2].className = 'sorting-r3';
     }
     if (sortElements[currentIndexSorting + 2] !== undefined) {
         sortElements[currentIndexSorting + 2].className = 'sorting-3';
