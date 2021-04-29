@@ -258,7 +258,7 @@
             <div id="sorting-list">
               <br>              
               {% for sort in sorts %}
-                <a href="{{ sort.href }}" class="sorting-{{ loop.index }}">{{ sort.text }}</a>
+                <a href="{{ sort.href }}">{{ sort.text }}</a>
               {% endfor %}
             </div>
           </div>
@@ -267,6 +267,6 @@
     </div>
   </div>
 
-  <script src="catalog/view/theme/bfr/javascript/sorting.js?v24042101"></script>
+  {# <script src="catalog/view/theme/bfr/javascript/sorting.js?v24042101"></script> #}
 
 {{ footer }}

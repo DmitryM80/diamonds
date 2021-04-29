@@ -106,8 +106,13 @@ $(function() {
 		}
 	});
 
-	
-	// $('#ring-img').width()
+	// sorting
+	$('#sorting-list a').on('click', function(e) {
+		e.preventDefault();
+		$('#sorting-list a').removeClass('current');
+		$(this).addClass('current');
+		$('.modal.sorting .close').attr('href', $(this).attr('href'));
+	});
 
 	// бегущая строка
 	$('.running-string').slick({
