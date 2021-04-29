@@ -2764,7 +2764,7 @@ div#navbarCollapse {
 }
 .sorting .modal-dialog .modal-content{
   background: #f0f1f3; 
-  padding-top: 30px;
+  padding-top: 35px;
 }
 .sorting .modal-dialog .modal-body{
   padding-top: 0px;
@@ -2780,7 +2780,7 @@ div#navbarCollapse {
     color: cornflowerblue;
     opacity: 1;
     line-height: 0;
-    padding: 0 10px;
+    padding: 5px 10px;
     position: absolute;
     right: 0px;
     top: 15px; 
