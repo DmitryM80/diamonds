@@ -180,6 +180,12 @@ $(function() {
 		$('body').toggleClass('modal-open');
 	});
 	// menu scroll
+
+	$('#shadow-bg').on('click', function() {
+		$('#navbarCollapse').toggleClass('show');
+		$('.navbar-toggler').toggleClass('collapsed');
+		$('body').removeClass('modal-open');
+	});
 });
 
 
