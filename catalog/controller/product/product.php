@@ -403,6 +403,7 @@ class ControllerProductProduct extends Controller {
 			$data['images_3d'] = array();
 			$data['images_3d_dir'] = '';
 			$data['images_3d_dir_abs'] = '';
+			$data['diamond_attrs'] = array();
 
 			foreach ($data['attribute_groups'][0]['attribute'] as $attr) {
 				if ($attr['attribute_id'] == 17) {
@@ -416,6 +417,21 @@ class ControllerProductProduct extends Controller {
 						$data['images_3d'][] = $images_3d_dir . $img;
 					}
 				}
+				
+				// разные атрибуты
+				if ($attr['attribute_id'] == 12) {
+					$data['diamond_attrs']['carats'] = $attr['text'];
+				}
+				if ($attr['attribute_id'] == 14) {
+					$data['diamond_attrs']['color'] = $attr['text'];
+				}
+				if ($attr['attribute_id'] == 15) {
+					$data['diamond_attrs']['clarity'] = $attr['text'];
+				}
+				if ($attr['attribute_id'] == 16) {
+					$data['diamond_attrs']['polish'] = $attr['text'];
+				}
+				// разные атрибуты
 			}
 			// картинки для 3D
 
