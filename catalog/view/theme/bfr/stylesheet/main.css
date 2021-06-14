@@ -2989,3 +2989,54 @@ body.modal-open #shadow-bg {
   color: #000;
   border-bottom: 3px solid #3f71df;
 }
+
+.notes-tabs-wrapper {
+  font-size: 14px;
+}
+.notes-tabs {
+  background-color: #fff;
+}
+.notes-tab {
+  text-align: center;
+  display: inline-block;
+  width: 48%;
+  padding: 10px 0 5px;
+  cursor: pointer;
+}
+.notes-tabs-wrapper .active {
+  font-weight: bold;
+  color: #000;
+  border-bottom: 3px solid #3f71df;
+}
+.notes-tabs-content {
+  padding: 10px 10px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+.notes-tab-item {
+  margin-bottom: 15px;
+}
+.note-block {
+  padding: 30px 0 10px;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #dedede;
+}
+.note-block:first-child {
+  padding: 10px 0 10px;
+}
+.note-block:last-child {
+  border-bottom: 0;
+}
+.note-block-title {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  width: 42%;
+  vertical-align: top;
+}
+.note-block-text {
+  font-size: 14px;
+  display: inline-block;
+  width: 56%;
+}

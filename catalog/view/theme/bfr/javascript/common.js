@@ -215,6 +215,7 @@ $(function() {
 		$('#diamond-cut-text').text($(this).attr('data-text'));
 	});
 
+	// блоки в карточке
 	$('#accordion a').on('click', function() {
 		var dataValue = $(this).attr('data-value');
 		if (dataValue !== undefined) {
@@ -226,6 +227,16 @@ $(function() {
 				}				
 			}			
 		}
+	});
+
+	// табы в карточке
+	$('.notes-tabs-wrapper').each(function() {
+		let ths = $(this);
+		ths.find('.notes-tab-item').not(':first').hide();
+		ths.find('.notes-tab').click(function() {
+			ths.find('.notes-tab').removeClass('active').eq($(this).index()).addClass('active');
+			ths.find('.notes-tab-item').hide().eq($(this).index()).fadeIn()
+		}).eq(0).addClass('active');
 	});
 });
 
