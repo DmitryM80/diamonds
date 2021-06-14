@@ -399,6 +399,23 @@ class ControllerProductProduct extends Controller {
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
 
 
+			// атрибуты для таблицы
+			$diamond_attributes = $data['attribute_groups'][0]['attribute'];
+			$diam_attrib_counter = 0;
+			$diam_attrib_half = count($diamond_attributes) / 2;
+
+			foreach ($diamond_attributes as $diam_attr) {
+				if ($diam_attr['attribute_id'] != 17){
+					if ($diam_attrib_counter < $diam_attrib_half) {
+						$data['diamond_attributes']['group1'][] = $diam_attr;
+					} else {
+						$data['diamond_attributes']['group2'][] = $diam_attr;
+					}
+					$diam_attrib_counter++;
+				}
+			}
+			// атрибуты для таблицы
+
 			// картинки для 3D
 			$data['images_3d'] = array();
 			$data['images_3d_dir'] = '';

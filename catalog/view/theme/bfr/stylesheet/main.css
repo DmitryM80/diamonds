@@ -2907,3 +2907,55 @@ body.modal-open #shadow-bg {
 #navbarCollapse .product-share-row svg {
   fill: #b3b3b3;
 }
+
+.detailed-info {
+  padding: 20px 25px;
+  background-color: #fff;
+}
+.detailed-info .title {
+  font-size: 14px;
+}
+.diamond-articul {
+  font-size: 22px;
+  color: #999;
+  padding: 5px 0;
+}
+.detailed-info table {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #656565;
+}
+.detailed-info table td {
+  padding: 5px 10px;
+  border-top: 0;
+}
+.detailed-info button {
+  margin-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  background-color: #fff;
+  color: #656565;
+  padding: 15px 10px 10px;
+  font-size: 14px;
+  text-align: left;
+}
+.diamond-more-info {
+  width: 100%;
+}
+.more-info-arrow {
+  height: 6px;
+  width: 15px;
+  display: inline-block;
+  transform: rotateZ(180deg);
+  vertical-align: text-bottom;
+  margin-left: 40%;
+}
+.more-info-arrow svg {
+  fill: #bbb;
+}
+.collapsed .more-info-arrow {
+  transform: rotateZ(0deg);
+  vertical-align: initial;
+}

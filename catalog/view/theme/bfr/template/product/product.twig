@@ -257,6 +257,44 @@
 
           {# картинки для 3D #}
 
+          <div class="row">
+            <div class="col-md-12">
+              <div class="detailed-info">
+                <h4 class="title">Описание бриллианта</h4>
+                <h3 class="diamond-articul">SKU {{ model }}</h3>
+
+                <table class="table">
+                  <tbody>
+                    {% for diamond_attribute in diamond_attributes.group1 %}
+                      <tr>
+                        <td>{{ diamond_attribute.name }}</td>
+                        <td>{{ diamond_attribute.text }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div class="sec-table-wrapper collapse" id="collapseExample">
+                <table class="table">
+                  <tbody>
+                    {% for diamond_attribute in diamond_attributes.group2 %}
+                      <tr>
+                        <td>{{ diamond_attribute.name }}</td>
+                        <td>{{ diamond_attribute.text }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                </div>
+                <button class="diamond-more-info collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  Показать больше
+                  <span class="more-info-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 5.68"><g><rect class="cls-1" x="3.43" y="2.16" width="7.47" height="1.36" rx="0.68" ry="0.68" transform="translate(0.09 5.9) rotate(-45)"></rect><rect class="cls-1" x="2.16" y="-0.9" width="1.36" height="7.47" rx="0.68" ry="0.68" transform="translate(-1.18 2.84) rotate(-45)"></rect></g></svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div class="row"> 
             <div class="col-md-12"> 
               <div class="about-product">
