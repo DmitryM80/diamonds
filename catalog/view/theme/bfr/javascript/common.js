@@ -186,6 +186,13 @@ $(function() {
 		$('.navbar-toggler').toggleClass('collapsed');
 		$('body').removeClass('modal-open');
 	});
+
+	// carat-sizes
+	$('.carat-sizes-list li').on('click', function() {
+		$('.carat-sizes-list li').removeClass('current-size');
+		$(this).addClass('current-size');
+		$('#carat-size-img').attr('src', '/image/carat-size/'+ $(this).attr('data-size') +'.jpeg');
+	});
 });
 
 

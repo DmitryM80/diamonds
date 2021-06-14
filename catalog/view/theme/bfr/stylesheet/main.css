@@ -2960,3 +2960,28 @@ body.modal-open #shadow-bg {
   transform: rotateZ(0deg);
   vertical-align: initial;
 }
+
+.carats-sizes-show {
+  margin-bottom: 20px;
+}
+.carats-sizes-img-wrapper {
+  margin: 20px auto;
+  text-align: center;
+}
+.carat-sizes-list {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  padding-left: 0;
+}
+.carat-sizes-list li {
+  display: table-cell;
+  text-align: center;
+  color: #999;
+  border-bottom: 1px solid #bbb;
+}
+.carat-sizes-list li.current-size {
+  font-weight: bold;
+  color: #000;
+  border-bottom: 3px solid #3f71df;
+}
