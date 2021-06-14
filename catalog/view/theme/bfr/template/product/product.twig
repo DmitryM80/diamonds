@@ -323,21 +323,35 @@
                           <li data-size="8">3</li>
                         </ul>
                       </div>
-                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                      commodo consequat.</div>
+                      <div class="panel-body">Carat refers to the weight of a diamond, which is directly proportional to its size. Use the sliders to see how sizes are shown in relation to the hand.</div>
                     </div>
                   </div>
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed" data-value="{{ diamond_attrs.color }}">
                         Цвет {{ diamond_attrs.color }} <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
                       </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
-                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      <div class="diamond-color-show">
+                        <div class="diamond-color-img-wrapper">
+                          <img src="/image/diamond-color/6.jpeg" alt="diamond-color" id="diamond-color-img">
+                        </div>
+                        <ul class="diamond-colors-list">
+                          <li data-color="1" data-text="Although these diamonds are slightly warm, they still offer a great value.">M</li>
+                          <li data-color="2" data-text="Although these diamonds are slightly warm, they still offer a great value.">L</li>
+                          <li data-color="3" data-text="Although these diamonds are slightly warm, they still offer a great value.">K</li>
+                          <li data-color="4" data-text="These diamonds have slight color, which tends to be more visible in diamonds over 1 carat.">J</li>
+                          <li data-color="5" data-text="These diamonds have slight color, which tends to be more visible in diamonds over 1 carat." class="current-color">I</li>
+                          <li data-color="6" data-text="Near-colorless at an exceptional value. These diamonds have color which is only noticeable when compared to higher color grades.">H</li>
+                          <li data-color="7" data-text="Near-colorless at an exceptional value. These diamonds have color which is only noticeable when compared to higher color grades.">G</li>
+                          <li data-color="8" data-text="F diamonds have slight color which can only be detected by an expert gemologist. Although F diamonds have slightly more color than E diamonds, they are still classified as colorless.">F</li>
+                          <li data-color="9" data-text="E diamonds feature slight traces of color that elude even a trained eye, earning them a colorless grade.">E</li>
+                          <li data-color="10" data-text="D is the best color grade. These diamonds are totally colorless and very rare.">D</li>
+                        </ul>
+                      </div>
+                      <div class="panel-body" id="diamond-color-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
                       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat.</div>
@@ -346,12 +360,28 @@
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed" data-value="{{ diamond_attrs.clarity }}">
                         Чистота {{ diamond_attrs.clarity }} <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
                       </h4>
                     </div>
                     <div id="collapse3" class="panel-collapse collapse">
-                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      <div class="diamond-clarity-show">
+                        <div class="diamond-clarity-img-wrapper">
+                          <img src="/image/diamond-clarity/6.gif" alt="diamond-clarity" id="diamond-clarity-img">
+                        </div>
+                        <ul class="diamond-clarity-list">
+                          <li data-color="1" data-text="Included 1. Some inclusions could be visible to the naked eye.">I1</li>
+                          <li data-color="2" data-text="Slightly included 2. The inclusions are visible under 10x magnification, and may be visible to the naked eye.">SI2</li>
+                          <li data-color="3" data-text="Slightly included 1. The inclusions are visible under 10x magnification, but are not very visible to the naked eye.">SI1</li>
+                          <li data-color="4" data-text="Very slightly included 2. Inclusions are difficult to detect under 10x magnification. Inclusions are typically not visible to the naked eye.">VS2</li>
+                          <li data-color="5" data-text="Very slightly included 1. Inclusions are difficult to detect under 10x magnification. Inclusions are not visible to the naked eye." class="current-clarity">VS1</li>
+                          <li data-color="6" data-text="Very very slightly included 2. The inclusions are difficult to see even under 10x magnification. They have only slightly more inclusions than VVS1 diamonds.">VVS2</li>
+                          <li data-color="7" data-text="Very very slightly included 1. The inclusions are difficult to see even under 10x magnification.">VVS1</li>
+                          <li data-color="8" data-text="Internally Flawless. These rare and beautiful diamonds boast no internal flaws.">IF</li>
+                          <li data-color="9" data-text="Flawless. The ultimate in diamond clarity, completely free of internal or external flaws.">FL</li>
+                        </ul>
+                      </div>
+                      <div class="panel-body" id="diamond-clarity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
                       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat.</div>
@@ -360,12 +390,23 @@
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="collapsed">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="collapsed" data-value="{{ diamond_attrs.polish }}">
                         Огранка {{ diamond_attrs.polish }} <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
                       </h4>
                     </div>
                     <div id="collapse4" class="panel-collapse collapse">
-                      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      <div class="diamond-cut-show">
+                        <div class="diamond-cut-img-wrapper">
+                          <img src="/image/diamond-cut/3.jpeg" alt="diamond-cut" id="diamond-cut-img">
+                        </div>
+                        <ul class="diamond-cut-list">
+                          <li data-color="1" data-text="Quality cut at a great value, without compromising beauty and sparkle. ">Good</li>
+                          <li data-color="2" data-text="High quality cut that reflects almost as much light as an ideal cut diamond, yet at a more affordable price.">Very Good</li>
+                          <li data-color="3" data-text="Superior quality cut that produces a striking balance of fire and brilliance. Only 3% of the world’s diamonds are ideal cut." class="current-cut">Ideal</li>
+                          <li data-color="4" data-text="Our premiere collection of True Hearts diamonds are available in Round Cut, Princess Cut, and Cushion Cut. Fewer than 1% of the world’s diamonds have the perfect internal symmetry and proportions necessary to earn the True Hearts distinction.">True Hearts</li>
+                        </ul>
+                      </div>
+                      <div class="panel-body" id="diamond-cut-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
                       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                       commodo consequat.</div>

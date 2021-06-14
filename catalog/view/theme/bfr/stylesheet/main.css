@@ -2929,6 +2929,7 @@ body.modal-open #shadow-bg {
 .detailed-info table td {
   padding: 5px 10px;
   border-top: 0;
+  width: 50%;
 }
 .detailed-info button {
   margin-top: 0;
@@ -2961,26 +2962,29 @@ body.modal-open #shadow-bg {
   vertical-align: initial;
 }
 
-.carats-sizes-show {
+.carats-sizes-show, .diamond-color-show, .diamond-clarity-show, .diamond-cut-show {
   margin-bottom: 20px;
 }
-.carats-sizes-img-wrapper {
+.carats-sizes-img-wrapper, .diamond-color-img-wrapper, .diamond-clarity-img-wrapper, .diamond-cut-img-wrapper {
   margin: 20px auto;
   text-align: center;
 }
-.carat-sizes-list {
+.carat-sizes-list, .diamond-colors-list, .diamond-clarity-list, .diamond-cut-list {
   display: table;
   width: 100%;
   table-layout: fixed;
   padding-left: 0;
 }
-.carat-sizes-list li {
+.diamond-clarity-list {
+  letter-spacing: -1px;
+}
+.carat-sizes-list li, .diamond-colors-list li, .diamond-clarity-list li, .diamond-cut-list li {
   display: table-cell;
   text-align: center;
   color: #999;
   border-bottom: 1px solid #bbb;
 }
-.carat-sizes-list li.current-size {
+.carat-sizes-list li.current-size, .diamond-colors-list li.current-color, .diamond-clarity-list li.current-clarity, .diamond-cut-list li.current-cut {
   font-weight: bold;
   color: #000;
   border-bottom: 3px solid #3f71df;

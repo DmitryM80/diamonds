@@ -193,6 +193,40 @@ $(function() {
 		$(this).addClass('current-size');
 		$('#carat-size-img').attr('src', '/image/carat-size/'+ $(this).attr('data-size') +'.jpeg');
 	});
+
+	$('.diamond-colors-list li').on('click', function() {
+		$('.diamond-colors-list li').removeClass('current-color');
+		$(this).addClass('current-color');
+		$('#diamond-color-img').attr('src', '/image/diamond-color/'+ $(this).attr('data-color') +'.jpeg');
+		$('#diamond-color-text').text($(this).attr('data-text'));
+	});
+
+	$('.diamond-clarity-list li').on('click', function() {
+		$('.diamond-clarity-list li').removeClass('current-clarity');
+		$(this).addClass('current-clarity');
+		$('#diamond-clarity-img').attr('src', '/image/diamond-clarity/'+ $(this).attr('data-color') +'.gif');
+		$('#diamond-clarity-text').text($(this).attr('data-text'));
+	});
+	
+	$('.diamond-cut-list li').on('click', function() {
+		$('.diamond-cut-list li').removeClass('current-cut');
+		$(this).addClass('current-cut');
+		$('#diamond-cut-img').attr('src', '/image/diamond-cut/'+ $(this).attr('data-color') +'.jpeg');
+		$('#diamond-cut-text').text($(this).attr('data-text'));
+	});
+
+	$('#accordion a').on('click', function() {
+		var dataValue = $(this).attr('data-value');
+		if (dataValue !== undefined) {
+			var targetBlock = $(this).attr('href');
+			var allValues = $(targetBlock +' ul').children();
+			for (let i = 0; i < allValues.length; i++) {
+				if ($(allValues[i]).text().toUpperCase() == dataValue.toUpperCase()) {
+					allValues[i].click();
+				}				
+			}			
+		}
+	});
 });
 
 
