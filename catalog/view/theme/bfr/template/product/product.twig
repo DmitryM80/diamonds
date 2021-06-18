@@ -108,26 +108,15 @@
                     <p>{{ description }}</p>
                   </div>
                   <div class="product-share-row">
-
-                    <a href="https://www.facebook.com/sharer.php?src=sp&u={{ share_url }}&title={{ heading_title }}&description={{ share_description }}&picture={{ thumb }}&utm_source=share2" target="_blank">
-                      <img src="catalog/view/theme/bfr/image/share-ico/facebook-app-logo.svg" alt="facebook" class="img-svg">
+                  
+                    <a href="https://api.whatsapp.com/send?text={{ heading_title }}%20{{ share_url }}&utm_source=share2" target="_blank">
+                      <img src="catalog/view/theme/bfr/image/share-ico/whatsapp.svg" alt="whatsapp" class="img-svg">
                     </a>
 
                     <a href="https://t.me/share/url?url=http%3A%2F%2Fbestfriends.ru%2Findex.php%3Froute%3Dproduct%2Fproduct%26product_id%3D{{ product_id }}&text={{ heading_title }}&utm_source=share2" target="_blank">
                       <img src="catalog/view/theme/bfr/image/share-ico/telegram.svg" alt="telegram" class="img-svg">
                     </a>
 
-                    <a href="https://api.whatsapp.com/send?text={{ heading_title }}%20{{ share_url }}&utm_source=share2" target="_blank">
-                      <img src="catalog/view/theme/bfr/image/share-ico/whatsapp.svg" alt="whatsapp" class="img-svg">
-                    </a>
-
-                    <a href="https://twitter.com/intent/tweet?text={{ heading_title }}&url={{ share_url }}&utm_source=share2" target="_blank">
-                      <img src="catalog/view/theme/bfr/image/share-ico/twitter.svg" alt="twitter" class="img-svg">
-                    </a>
-
-                    <a href="mailto:?subject={{ heading_title }}&amp;body={{ share_description }}%20{{ share_url }}" target="_blank">
-                      <img src="catalog/view/theme/bfr/image/share-ico/email.svg" alt="email" class="img-svg">
-                    </a>
                     {# <div class="ya-share2" data-image="{{ share_image }}" data-description="{{ description }}" data-shape="round" data-color-scheme="whiteblack" data-services="facebook,telegram,twitter,whatsapp"></div> #}
                   </div>
                 </div> 
@@ -260,8 +249,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="detailed-info">
-                <h4 class="title">Описание бриллианта</h4>
-                <h3 class="diamond-articul">SKU {{ model }}</h3>
+                <h4 class="title">Характеристики</h4>
+                <h3 class="diamond-articul">Артикул: {{ model }}</h3>
 
                 <table class="table">
                   <tbody>
@@ -286,7 +275,7 @@
                 </table>
                 </div>
                 <button class="diamond-more-info collapsed" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  Показать больше
+                  Больше информации
                   <span class="more-info-arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 5.68"><g><rect class="cls-1" x="3.43" y="2.16" width="7.47" height="1.36" rx="0.68" ry="0.68" transform="translate(0.09 5.9) rotate(-45)"></rect><rect class="cls-1" x="2.16" y="-0.9" width="1.36" height="7.47" rx="0.68" ry="0.68" transform="translate(-1.18 2.84) rotate(-45)"></rect></g></svg>
                   </span>
@@ -298,59 +287,59 @@
           <div class="row">
             <div class="col-12 notes-tabs-wrapper">
               <div class="notes-tabs">
-                <span class="notes-tab">Shop With Confidence</span>
-                <span class="notes-tab">Payments & Financing</span>
+                <span class="notes-tab">Условия Доставки</span>
+                <span class="notes-tab">Условия Оплаты</span>
               </div>
               <div class="notes-tabs-content">
                 <div class="notes-tab-item">
                   <div class="note-block">
-                    <h4 class="note-block-title">James Allen Exclusive</h4>
+                    <h4 class="note-block-title">Эксклюзивность</h4>
                     <div class="note-block-text">
-                      Each and every diamond sold on our website is exclusive to JamesAllen.com. Be wary of any websites purporting to sell you this exact diamond, and always shop with a trusted retailer to ensure you're getting a certified diamond with a guarantee you can count on.
+                      Каждый бриллиант, продаваемый на нашем сайте, является эксклюзивным для BestFriends.ru. Будьте осторожны с любыми веб-сайтами, претендующими на продажу вам именно этого бриллианта, и всегда делайте покупки у надежного розничного продавца, чтобы убедиться, что вы получаете сертифицированный бриллиант с гарантией, на которую вы можете рассчитывать.
                     </div>
                   </div>
                   <div class="note-block">
-                    <h4 class="note-block-title">Diamond Price Match</h4>
+                    <h4 class="note-block-title">Отличные цены на бриллианты</h4>
                     <div class="note-block-text">
-                      We strive to offer diamonds at the best prices. Found a comparable diamond at a lower price? Call us at 877-826-9866. We will honor the price as long as it fulfills our Price Match Criteria.
+                      Мы стремимся предлагать бриллианты по самым выгодным ценам. Нашли сопоставимый бриллиант по более низкой цене? Позвоните нам по телефону +7(925)925 82-50. Мы предложим альтернативу.
                     </div>
                   </div>
                   <div class="note-block">
-                    <h4 class="note-block-title">Conflict Free Diamonds</h4>
+                    <h4 class="note-block-title">Чистое происхождение</h4>
                     <div class="note-block-text">
-                      Every diamond featured on JamesAllen.com is inspected by our in-house gemologists prior to shipment. All of our diamonds are Conflict Free.
+                      Каждый бриллиант, изображенный на BestFriends.ru проверяется нашими собственными геммологами перед отправкой. Все наши алмазы бесконфликтны.
                     </div>
                   </div>
                   <div class="note-block">
-                    <h4 class="note-block-title">Expertly Photographed</h4>
+                    <h4 class="note-block-title">360° HD</h4>
                     <div class="note-block-text">
-                      Every diamond on JamesAllen.com is photographed in 360° HD and magnified up to 40 times, creating a one-of-a-kind viewing experience.
+                      Каждый бриллиант на BestFriends.ru фотографируется в формате 360° HD и увеличивается до 40 раз, создавая единственный в своем роде опыт просмотра.
                     </div>
                   </div>
                 </div>
                 <div class="notes-tab-item">
                   <div class="note-block">
-                    <h4 class="note-block-title">Wire Transfer</h4>
+                    <h4 class="note-block-title">Безналичный платёж</h4>
                     <div class="note-block-text">
-                      Bank wire customers receive a 1.5% discount off their entire order.
+                      Клиенты банковского перевода получают скидку на заказ.
                     </div>
                   </div>
                   <div class="note-block">
-                    <h4 class="note-block-title">Credit Card & PayPal</h4>
+                    <h4 class="note-block-title">Бесконтактный платеж</h4>
                     <div class="note-block-text">
-                      Pay securely using Visa, Amex, Master Card, Discover or PayPal.
+                      Безопасно оплачивайте с помощью Visa, Master Card, МИР или др.
                     </div>
                   </div>
                   <div class="note-block">
-                    <h4 class="note-block-title">James Allen Special Financing</h4>
+                    <h4 class="note-block-title">BestFriends cпециальное финансирование</h4>
                     <div class="note-block-text">
-                      James Allen offers financing options to help you with your purchase.
+                      BestFriends предлагает варианты финансирования, чтобы помочь вам с покупкой.
                     </div>
                   </div>
                   <div class="note-block">
-                    <h4 class="note-block-title">Splitit</h4>
+                    <h4 class="note-block-title">Платёж с рассрочкой</h4>
                     <div class="note-block-text">
-                      Use your existing credit card to pay over time in 3 interest free instalments.
+                      Используйте существующую кредитную карту для оплаты в течение долгого времени 3 беспроцентными платежами.
                     </div>
                   </div>
                 </div>
@@ -367,26 +356,26 @@
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="collapsed">
-                        Карат {{ diamond_attrs.carats }} <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
+                        {{ diamond_attrs.carats }} Карат <img src="catalog/view/theme/bfr/image/minus-sign.svg" alt="" class="img-svg minus-ico "><img src="catalog/view/theme/bfr/image/plus.svg" alt="" class="img-svg plus-ico"></a>
                       </h4>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse">
+                    <div id="collapse1" class="panel-collapse collapse show">
                       <div class="carats-sizes-show">
                         <div class="carats-sizes-img-wrapper">
                           <img src="/image/carat-size/5.jpeg" alt="carat-size-img" id="carat-size-img">
                         </div>
                         <ul class="carat-sizes-list">
-                          <li data-size="1">1/4</li>
-                          <li data-size="2">1/3</li>
-                          <li data-size="3">1/2</li>
-                          <li data-size="4">3/4</li>
+                          <li data-size="1">0.25</li>
+                          <li data-size="2">0.3</li>
+                          <li data-size="3">0.5</li>
+                          <li data-size="4">0.75</li>
                           <li data-size="5" class="current-size">1</li>
                           <li data-size="6">1.5</li>
                           <li data-size="7">2</li>
                           <li data-size="8">3</li>
                         </ul>
                       </div>
-                      <div class="panel-body">Carat refers to the weight of a diamond, which is directly proportional to its size. Use the sliders to see how sizes are shown in relation to the hand.</div>
+                      <div class="panel-body">Карат относится к весу бриллианта, который прямо пропорционален его размеру. Используйте ползунки, чтобы увидеть, как отображаются размеры по отношению к руке.</div>
                     </div>
                   </div>
                   <div class="panel panel-default">
@@ -402,16 +391,16 @@
                           <img src="/image/diamond-color/6.jpeg" alt="diamond-color" id="diamond-color-img">
                         </div>
                         <ul class="diamond-colors-list">
-                          <li data-color="1" data-text="Although these diamonds are slightly warm, they still offer a great value.">M</li>
-                          <li data-color="2" data-text="Although these diamonds are slightly warm, they still offer a great value.">L</li>
-                          <li data-color="3" data-text="Although these diamonds are slightly warm, they still offer a great value.">K</li>
-                          <li data-color="4" data-text="These diamonds have slight color, which tends to be more visible in diamonds over 1 carat.">J</li>
-                          <li data-color="5" data-text="These diamonds have slight color, which tends to be more visible in diamonds over 1 carat." class="current-color">I</li>
-                          <li data-color="6" data-text="Near-colorless at an exceptional value. These diamonds have color which is only noticeable when compared to higher color grades.">H</li>
-                          <li data-color="7" data-text="Near-colorless at an exceptional value. These diamonds have color which is only noticeable when compared to higher color grades.">G</li>
-                          <li data-color="8" data-text="F diamonds have slight color which can only be detected by an expert gemologist. Although F diamonds have slightly more color than E diamonds, they are still classified as colorless.">F</li>
-                          <li data-color="9" data-text="E diamonds feature slight traces of color that elude even a trained eye, earning them a colorless grade.">E</li>
-                          <li data-color="10" data-text="D is the best color grade. These diamonds are totally colorless and very rare.">D</li>
+                          <li data-color="1" data-text="Хоть эти алмазы и имеют небольшой оттенок, они представляют значительную ценность.">M</li>
+                          <li data-color="2" data-text="Хоть эти алмазы и имеют небольшой оттенок, они представляют значительную ценность.">L</li>
+                          <li data-color="3" data-text="Хоть эти алмазы и имеют небольшой оттенок, они представляют значительную ценность.">K</li>
+                          <li data-color="4" data-text="Эти бриллианты имеют легкий цвет, который, как правило, более заметен в бриллиантах весом более 1 карат.">J</li>
+                          <li data-color="5" data-text="Эти бриллианты имеют легкий цвет, который, как правило, более заметен в бриллиантах весом более 1 карат." class="current-color">I</li>
+                          <li data-color="6" data-text="Почти бесцветные по исключительной цене. Эти бриллианты имеют цвет, который заметен только по сравнению с более высокими цветовыми классами.">H</li>
+                          <li data-color="7" data-text="Почти бесцветные по исключительной цене. Эти бриллианты имеют цвет, который заметен только по сравнению с более высокими цветовыми классами.">G</li>
+                          <li data-color="8" data-text="F бриллианты имеют слабый цвет, который может быть обнаружен только экспертом-геммологом. Хотя алмазы F имеют немного больше цвета, чем алмазы E, они все еще классифицируются как бесцветные.">F</li>
+                          <li data-color="9" data-text="E бриллианты имеют незначительные следы цвета, которые ускользают даже от тренированного глаза, что делает их бесцветными.">E</li>
+                          <li data-color="10" data-text="D это лучшая цветовая гамма. Эти бриллианты совершенно бесцветны и очень редки.">D</li>
                         </ul>
                       </div>
                       <div class="panel-body" id="diamond-color-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -433,15 +422,15 @@
                           <img src="/image/diamond-clarity/6.gif" alt="diamond-clarity" id="diamond-clarity-img">
                         </div>
                         <ul class="diamond-clarity-list">
-                          <li data-color="1" data-text="Included 1. Some inclusions could be visible to the naked eye.">I1</li>
-                          <li data-color="2" data-text="Slightly included 2. The inclusions are visible under 10x magnification, and may be visible to the naked eye.">SI2</li>
-                          <li data-color="3" data-text="Slightly included 1. The inclusions are visible under 10x magnification, but are not very visible to the naked eye.">SI1</li>
-                          <li data-color="4" data-text="Very slightly included 2. Inclusions are difficult to detect under 10x magnification. Inclusions are typically not visible to the naked eye.">VS2</li>
-                          <li data-color="5" data-text="Very slightly included 1. Inclusions are difficult to detect under 10x magnification. Inclusions are not visible to the naked eye." class="current-clarity">VS1</li>
-                          <li data-color="6" data-text="Very very slightly included 2. The inclusions are difficult to see even under 10x magnification. They have only slightly more inclusions than VVS1 diamonds.">VVS2</li>
-                          <li data-color="7" data-text="Very very slightly included 1. The inclusions are difficult to see even under 10x magnification.">VVS1</li>
-                          <li data-color="8" data-text="Internally Flawless. These rare and beautiful diamonds boast no internal flaws.">IF</li>
-                          <li data-color="9" data-text="Flawless. The ultimate in diamond clarity, completely free of internal or external flaws.">FL</li>
+                          <li data-color="1" data-text="Некоторые включения видны невооруженным глазом.">I1</li>
+                          <li data-color="2" data-text="Включения видны при 10-кратном увеличении и могут быть видны невооруженным глазом.">SI2</li>
+                          <li data-color="3" data-text="Включения видны при 10-кратном увеличении, но не очень заметны невооруженным глазом.">SI1</li>
+                          <li data-color="4" data-text="Включения трудно обнаружить при 10-кратном увеличении. Включения, как правило, не видны невооруженным глазом.">VS2</li>
+                          <li data-color="5" data-text="Включения трудно обнаружить при 10-кратном увеличении. Включения не видны невооруженным глазом." class="current-clarity">VS1</li>
+                          <li data-color="6" data-text="Включения трудно увидеть даже при 10-кратном увеличении. В них лишь немного больше включений, чем в бриллиантах VVS1.">VVS2</li>
+                          <li data-color="7" data-text="Включения трудно увидеть даже при 10-кратном увеличении.">VVS1</li>
+                          <li data-color="8" data-text="Эти редкие и красивые бриллианты не могут похвастаться внутренними недостатками.">IF</li>
+                          <li data-color="9" data-text="Абсолютная бриллиантовая чистота, полностью свободная от внутренних или внешних дефектов.">FL</li>
                         </ul>
                       </div>
                       <div class="panel-body" id="diamond-clarity-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -463,10 +452,10 @@
                           <img src="/image/diamond-cut/3.jpeg" alt="diamond-cut" id="diamond-cut-img">
                         </div>
                         <ul class="diamond-cut-list">
-                          <li data-color="1" data-text="Quality cut at a great value, without compromising beauty and sparkle. ">Good</li>
-                          <li data-color="2" data-text="High quality cut that reflects almost as much light as an ideal cut diamond, yet at a more affordable price.">Very Good</li>
-                          <li data-color="3" data-text="Superior quality cut that produces a striking balance of fire and brilliance. Only 3% of the world’s diamonds are ideal cut." class="current-cut">Ideal</li>
-                          <li data-color="4" data-text="Our premiere collection of True Hearts diamonds are available in Round Cut, Princess Cut, and Cushion Cut. Fewer than 1% of the world’s diamonds have the perfect internal symmetry and proportions necessary to earn the True Hearts distinction.">True Hearts</li>
+                          <li data-color="1" data-text="Качественная огранка по хорошей цене, без вреда красоте и блеску бриллианта.">Good</li>
+                          <li data-color="2" data-text="Высококачественная огранка, которая отражает почти столько же света, сколько идеальный бриллиант, но по более доступной цене.">Very Good</li>
+                          <li data-color="3" data-text="Превосходная качественная огранка, которая создает поразительный баланс игры блеска. Только 3% мировых алмазов имеют идеальную огранку." class="current-cut">Excellent</li>
+                          <li data-color="4" data-text="Наша премьерная коллекция бриллиантов Наивысшая Степень доступна в Круглой и огранке Ашер. Менее 1% бриллиантов в мире имеют идеальную внутреннюю симметрию и пропорции, необходимые для того, чтобы заслужить признание Наивысшей Степени.">Highest Degree</li>
                         </ul>
                       </div>
                       <div class="panel-body" id="diamond-cut-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit,

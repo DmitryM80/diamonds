@@ -1427,9 +1427,7 @@ ul.navbar-menu li a {
 
   .product-card .info-panel {
     padding: 0;
-    /* margin: 8px 0;  */
-    margin: 5px 0; 
-    /*line-height: 1.2;*/ }
+    margin: 15px 0; }
     @media (min-width: 991px) {
       .product-card .info-panel {
         margin: 15px 0; } }
@@ -1449,7 +1447,6 @@ ul.navbar-menu li a {
     display: inline-block; }
     .info-panel .info-item {
       font-size: 13px;
-      line-height: 1.3;
     }
     .product-card .price-panel {
       margin-top: 15px;
@@ -2893,13 +2890,13 @@ body.modal-open #shadow-bg {
 }
 
 #navbarCollapse .product-share-row {
-  margin: 0 0 100px;
+  margin: 0 0 150px;
   position: static;
 }
 #navbarCollapse .product-share-row a {
-  width: 30px;
-  height: 30px;
-  margin: 0 18px;
+  width: 20px;
+  height: 40px;
+  margin: 0 12px;
 }
 #navbarCollapse .product-share-row img {
   max-width: 100%;
@@ -2917,7 +2914,7 @@ body.modal-open #shadow-bg {
   font-size: 14px;
 }
 .diamond-articul {
-  font-size: 16px;
+  font-size: 14px;
   color: #999;
   padding: 5px 0;
 }
@@ -2939,8 +2936,8 @@ body.modal-open #shadow-bg {
   border-bottom: 1px solid #bbb;
   background-color: #fff;
   color: #656565;
-  padding: 15px 10px 10px;
-  font-size: 14px;
+  padding: 15px 10px 12px;
+  font-size: 12px;
   text-align: left;
 }
 .diamond-more-info {
@@ -2987,7 +2984,7 @@ body.modal-open #shadow-bg {
 .carat-sizes-list li.current-size, .diamond-colors-list li.current-color, .diamond-clarity-list li.current-clarity, .diamond-cut-list li.current-cut {
   font-weight: bold;
   color: #000;
-  border-bottom: 3px solid #3f71df;
+  border-bottom: 2px solid #3f71df;
 }
 
 .notes-tabs-wrapper {
@@ -2999,17 +2996,16 @@ body.modal-open #shadow-bg {
 .notes-tab {
   text-align: center;
   display: inline-block;
-  width: 48%;
-  padding: 10px 0 5px;
+  width: 49%;
+  padding: 15px 0 9px;
   cursor: pointer;
 }
 .notes-tabs-wrapper .active {
   font-weight: bold;
   color: #000;
-  border-bottom: 3px solid #3f71df;
+  border-bottom: 2px solid #3f71df;
 }
 .notes-tabs-content {
-  padding: 10px 10px;
   background-color: #fff;
   margin-bottom: 5px;
 }
@@ -3017,23 +3013,22 @@ body.modal-open #shadow-bg {
   margin-bottom: 15px;
 }
 .note-block {
-  padding: 30px 0 10px;
+  padding: 25px 0 25px;
   width: 90%;
   margin: 0 auto;
   border-bottom: 1px solid #dedede;
 }
 .note-block:first-child {
-  padding: 10px 0 10px;
+  padding: 20px 0 20px;
 }
 .note-block:last-child {
-  border-bottom: 0;
 }
 .note-block-title {
   font-size: 14px;
-  font-weight: bold;
   display: inline-block;
-  width: 42%;
+  width: 40%;
   vertical-align: top;
+  line-height: 1.5;
 }
 .note-block-text {
   font-size: 14px;
