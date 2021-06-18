@@ -6,28 +6,7 @@ $(function() {
 	$(this).toggle();
 	});
 
-	// product slider
-	/* $('.slider-main').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		arrows: false,
-		fade: true,
-		asNavFor: '.slider-nav',
-		infinite: true,
-        swipe: false
-	});
-	$('.slider-nav').slick({
-		slidesToShow: 4,
-		slidesToScroll: 1,
-		asNavFor: '.slider-main',
-		dots: false, 
-		arrows: false,
-		infinite: true,
-		focusOnSelect: true
-	}); */
-
 	// product images
-	// var ringImage = $('#ring-img').width();
 	$('.nav-pic img').on('click', function() {
 		var navindex = $(this).parent().data('navindex');
 		if (navindex == 0) {
@@ -36,7 +15,6 @@ $(function() {
 		} else if (navindex == 1) {
 			$('#3d-viewer').hide();
 			$('#static-img-viewer img').show();
-			// $('#static-img-viewer img').attr('src', $('.nav-pic img')[0].src);
 			$('#static-img-viewer img').attr('src', this.src);
 		} else if (navindex == 2) {
 			$('#certificate-modal').modal();
@@ -45,9 +23,7 @@ $(function() {
 			setTimeout(function() {
 				var rIW = 325;
 				$('#ring-slider').val(3.3);
-				// $('#diamond-sizes').css('width', ($('#ring-img').width()) * 9);
 				$('#diamond-sizes').css('width', rIW * 9);
-				// $('#diamond-sizes').css('left', -3 - ($('#ring-img').width() * 2));
 				$('#diamond-sizes').css('left', -20 - rIW * 2);
 			}, 200);
 		}		
@@ -60,59 +36,36 @@ $(function() {
 	});
 
 	// ring slider
-	// var ringImagesPath = '/image/ring_img/';
-	// var imageExt = '.png';
 	var ringImgWidth = 325;
 	$('#ring-slider').on('input', function() {
 		console.log(this.value);
 		if (this.value <= 0.4) {
-			// $('#ring-img img').attr('src', ringImagesPath + 1 + imageExt);
 			$('#diamond-sizes').css('left', -20);
 		}
 		if (this.value >= 0.5 && this.value <= 1.8) {
-			// $('#ring-img img').attr('src', ringImagesPath + 2 + imageExt);
-			// $('#diamond-sizes').css('left', -$('#ring-img').width() - 3);
 			$('#diamond-sizes').css('left', -ringImgWidth - 20);
 		}
 		if (this.value >= 1.9 && this.value <= 3.2) {
-			// $('#ring-img img').attr('src', ringImagesPath + 3 + imageExt);
-			// $('#diamond-sizes').css('left', -20 - $('#ring-img').width() * 2);
 			$('#diamond-sizes').css('left', -20 - ringImgWidth * 2);
 		}
 		if (this.value >= 3.3 && this.value <= 4.3) {
-			// $('#ring-img img').attr('src', ringImagesPath + 4 + imageExt);
-			// $('#diamond-sizes').css('left', -20 - $('#ring-img').width() * 3);
 			$('#diamond-sizes').css('left', -20 - ringImgWidth * 3);
 		}
 		if (this.value >= 4.4 && this.value <= 5.7) {
-			// $('#ring-img img').attr('src', ringImagesPath + 6 + imageExt);
-			// $('#diamond-sizes').css('left', -20 - $('#ring-img').width() * 4);
 			$('#diamond-sizes').css('left', -20 - ringImgWidth * 4);
 		}
 		if (this.value >= 5.8 && this.value <= 6.9) {
-			// $('#ring-img img').attr('src', ringImagesPath + 7 + imageExt);
-			// $('#diamond-sizes').css('left', -20 - $('#ring-img').width() * 5);
 			$('#diamond-sizes').css('left', -20 - ringImgWidth * 5);
 		}
 		if (this.value >= 7 && this.value <= 8) {
-			// $('#ring-img img').attr('src', ringImagesPath + 8 + imageExt);
-			// $('#diamond-sizes').css('left', -20 - $('#ring-img').width() * 6);
 			$('#diamond-sizes').css('left', -20 - ringImgWidth * 6);
 		}
 		if (this.value >= 8.1) {
-			// $('#ring-img img').attr('src', ringImagesPath + 9 + imageExt);
-			// $('#diamond-sizes').css('left', -20 - $('#ring-img').width() * 7);
 			$('#diamond-sizes').css('left', -20 - ringImgWidth * 7);
 		}
 	});
 
 	// sorting
-	/* $('#sorting-list a').on('click', function(e) {
-		e.preventDefault();
-		$('#sorting-list a').removeClass('current');
-		$(this).addClass('current');
-		$('.modal.sorting .close').attr('href', $(this).attr('href'));
-	}); */
 	$('#sorting .close').on('click', function() {
 		$('#sorting').hide().modal('hide');
 	});
@@ -123,7 +76,6 @@ $(function() {
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 3000,
-		// rtl: true,
 		arrows: false,
 		dots: false,
 		infinite: true,
@@ -237,6 +189,15 @@ $(function() {
 			ths.find('.notes-tab').removeClass('active').eq($(this).index()).addClass('active');
 			ths.find('.notes-tab-item').hide().eq($(this).index()).fadeIn()
 		}).eq(0).addClass('active');
+	});
+
+	
+	$(window).on('scroll', function() {
+		if ($(document).scrollTop() > 4) {
+			$('header').addClass('fixed-header');
+		} else {
+			$('header').removeClass('fixed-header');
+		}
 	});
 });
 

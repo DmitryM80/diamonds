@@ -515,7 +515,9 @@ button {
 
 header {
   background: #fff;
-  box-shadow: 0 1px 3px rgba(20,26,46,0.17); }
+  box-shadow: 0 1px 3px rgba(20,26,46,0.17);
+  position: relative;
+}
   header nav .custom-navbar-row {
     width: 100%;
     margin: 0; }
@@ -3021,8 +3023,8 @@ body.modal-open #shadow-bg {
 .note-block:first-child {
   padding: 20px 0 20px;
 }
-.note-block:last-child {
-}
+/* .note-block:last-child {
+} */
 .note-block-title {
   font-size: 14px;
   display: inline-block;
@@ -3035,3 +3037,110 @@ body.modal-open #shadow-bg {
   display: inline-block;
   width: 56%;
 }
+
+/* iphone */
+section.iphone-1, section.iphone-2, section.iphone-3 {
+  background-size: cover;
+  background-position: center center;  
+  text-align: center;
+  padding: 45px 0;
+  min-height: 560px;
+}
+section.iphone-1 {
+  background-color: #fff;
+  background-image: url("/image/iphone-img/iphone-1-lg.jpeg");
+}
+section.iphone-2 {
+  background-color: #000;
+  background-image: url("/image/iphone-img/iphone-2-lg.jpeg");
+}
+section.iphone-3 {
+  background-color: #fff;
+  background-image: url("/image/iphone-img/iphone-3-lg.jpeg");
+  min-height: 600px;
+  margin-bottom: 80px;
+}
+.iphone-1 h2.headline, .iphone-3 h2.headline {
+  font-size: 56px;
+  color: #1d1d1f;
+}
+.iphone-2 h2.headline {
+  font-size: 56px;
+  color: #f5f5f7;
+}
+.iphone-1 h3.subhead, .iphone-3 h3.subhead {
+  font-size: 28px;
+  color: #1d1d1f;
+  margin-bottom: 15px;
+}
+.iphone-2 h3.subhead {
+  font-size: 28px;
+  color: #f5f5f7;
+  margin-bottom: 15px;
+}
+.price-with-carrier {
+  font-size: 17px;
+  color: #86868b;
+  margin: 0 auto;
+  text-transform: initial;
+}
+.cta-links {
+  margin-top: 15px;
+}
+.iphone-link {
+  font-size: 21px;
+  color: #2997ff;
+  text-transform: initial;
+}
+.iphone-link::after {
+  content: "\1433";
+  font-size: 10px;
+  margin-left: 7px;
+}
+header.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+@media (max-width: 747px) {
+  section.iphone-1, section.iphone-2, section.iphone-3 {
+    padding: 45px 0;
+    min-height: 560px;
+  }
+  section.iphone-1 {
+    background-image: url("/image/iphone-img/iphone-1.jpeg");
+  }
+  section.iphone-2 {
+    background-image: url("/image/iphone-img/iphone-2.jpeg");
+  }
+  section.iphone-3 {
+    background-image: url("/image/iphone-img/iphone-3.jpeg");
+  }
+  .iphone-1 h2.headline, .iphone-3 h2.headline {
+    font-size: 32px;
+  }
+  .iphone-2 h2.headline {
+    font-size: 32px;
+  }
+  .iphone-1 h3.subhead, .iphone-3 h3.subhead {
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
+  .iphone-2 h3.subhead {
+    font-size: 19px;
+  }
+  .price-with-carrier {
+    font-size: 14px;
+    max-width: 180px;
+    margin-bottom: 15px;
+  }
+  .iphone-link {
+    font-size: 19px;
+  }
+  .iphone-link::after {
+    font-size: 10px;
+    margin-left: 7px;
+  }
+}
+/* iphone */

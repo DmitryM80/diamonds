@@ -1,20 +1,20 @@
 <?php
-class ControllerCommonHome extends Controller {
+class ControllerCommonMain extends Controller {
 	public function index() {
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
 
 		if (isset($this->request->get['route'])) {
-			$canonical = $this->url->link('common/home');
+			$canonical = $this->url->link('common/lots');
 			if ($this->config->get('config_seo_pro') && !$this->config->get('config_seopro_addslash')) {
-				$canonical = rtrim($canonical, '/');
+				$canonical = rtrim($canonical, '/lots');
 			}
 			$this->document->addLink($canonical, 'canonical');
 		}
 
 		$this->load->language('common/home');
-		/* $this->load->model('catalog/product');
+		$this->load->model('catalog/product');
 		$this->load->model('tool/image');
 
 		if (isset($this->request->get['sort'])) {
@@ -35,11 +35,11 @@ class ControllerCommonHome extends Controller {
 			'filter_category_id' => 59,
 			'sort'               => $sort,
 			'order'              => $order
-		); */
+		);
 
 
 		// $brilliants = $this->model_catalog_product->getProducts(array('filter_category_id' => 59));
-		/* $brilliants = $this->model_catalog_product->getProducts($filter_data);
+		$brilliants = $this->model_catalog_product->getProducts($filter_data);
 		$data['brilliants'] = array();
 
 		foreach ($brilliants as $brilliant) {
@@ -77,9 +77,8 @@ class ControllerCommonHome extends Controller {
 			'text'  => $this->language->get('text_weight_desc'),
 			'value' => 'p.weight-DESC',
 			'href'  => $this->url->link('common/home', '&sort=p.weight&order=DESC' . $url)
-		); */
+		);
 		
-		$data['link_main'] = $this->url->link('common/main');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
@@ -88,6 +87,6 @@ class ControllerCommonHome extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('common/home', $data));
+		$this->response->setOutput($this->load->view('common/main', $data));
 	}
 }
