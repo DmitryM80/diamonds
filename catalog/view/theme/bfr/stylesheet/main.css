@@ -520,7 +520,8 @@ header {
 }
   header nav .custom-navbar-row {
     width: 100%;
-    margin: 0; }
+    margin: 0;
+    padding: 5px 0; }
   header .logo img {
     height: auto;
     display: block;
@@ -3048,17 +3049,16 @@ section.iphone-1, section.iphone-2, section.iphone-3 {
 }
 section.iphone-1 {
   background-color: #fff;
-  background-image: url("/image/iphone-img/iphone-1-lg.jpeg");
+  background-image: url("/image/iphone-img/iphone-1-lgч.jpeg");
 }
 section.iphone-2 {
   background-color: #000;
-  background-image: url("/image/iphone-img/iphone-2-lg.jpeg");
+  background-image: url("/image/iphone-img/iphone-2-lgч.jpeg");
 }
 section.iphone-3 {
   background-color: #fff;
-  background-image: url("/image/iphone-img/iphone-3-lg.jpeg");
+  background-image: url("/image/iphone-img/iphone-3-lgч.jpeg");
   min-height: 600px;
-  margin-bottom: 80px;
 }
 .iphone-1 h2.headline, .iphone-3 h2.headline {
   font-size: 56px;
@@ -3089,7 +3089,7 @@ section.iphone-3 {
 }
 .iphone-link {
   font-size: 21px;
-  color: #2997ff;
+  color: #3f71df;
   text-transform: initial;
 }
 .iphone-link::after {
