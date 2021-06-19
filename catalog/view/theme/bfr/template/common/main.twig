@@ -205,40 +205,41 @@
             {% for brilliant in brilliants %}
             
               <div class="col-md-6"> 
-                <a href="{{ brilliant.href }}" class="product-card-link">
+                
                 <div class="card product-card p-0">
-                  <div class="col-6 col-img p-0">
-                    
+                  <div class="col-img p-0">
+                    <a href="{{ brilliant.href }}" class="product-card-link">
                       <img src="{{ brilliant.main_image }}" alt="">
-                    
+                    </a>
                   </div>
                   <div class="col-6 col-info">
                     <div class="head-panel">
-                      <div class="product-title">
-                        {# <a href="{{ brilliant.href }}">{{ brilliant.name | replace({"ct" : ""}) }} <span class="lower-ct">ct</span> </a> #}
-                        <span class="brillinat-name">{{ brilliant.name | replace({"ct" : ""}) }} </span><span class="lower-ct">ct</span>
+                      <a href="{{ brilliant.href }}" class="product-card-link">
+                        <div class="product-title">
+                          <span class="brillinat-name">{{ brilliant.name | replace({"ct" : ""}) }} </span><span class="lower-ct">ct</span>
+                        </div>
+                      </a>
+                      <div class="like-btn" onclick="wishlist.add('{{ brilliant.product_id }}');"><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></div>  
+                    </div>
+                    <a href="{{ brilliant.href }}" class="product-card-link">
+                      <div class="card-body info-panel">
+                        {# <div class="info-item"><span class="info-item-title">Артикул: </span>{{ brilliant.model }}</div> #}
+                        
+                        {% for attribute in brilliant.brilliant_attributes.0.attribute %}
+                          {% if attribute.attribute_id != 16 and attribute.attribute_id != 17 %} {# убираем огранку и 3д картинки (id == 16 и 17)  #}
+
+                            <div class="info-item"><span class="info-item-title">{{ attribute.name }} </span>{{ attribute.text }}</div>
+
+                          {% endif %}                        
+                        {% endfor %}
+                        <div class="info-item"><span class="info-item-title">Сертификат </span>GIA</div>
                       </div>
-                      <div class="like-btn" onclick="wishlist.add('{{ brilliant.product_id }}');"><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></div>
-                    </div>
-                    <div class="card-body info-panel">
-                      {# <div class="info-item"><span class="info-item-title">Артикул: </span>{{ brilliant.model }}</div> #}
-                      
-                      {% for attribute in brilliant.brilliant_attributes.0.attribute %}
-                        {% if attribute.attribute_id != 16 and attribute.attribute_id != 17 %} {# убираем огранку и 3д картинки (id == 16 и 17)  #}
-
-                          <div class="info-item"><span class="info-item-title">{{ attribute.name }} </span>{{ attribute.text }}</div>
-
-                        {% endif %}                        
-                      {% endfor %}
-                      <div class="info-item"><span class="info-item-title">Сертификат </span>GIA</div>
-                    </div>
-                    {# <div class="price-panel"><span class="info-item-title">Цена: </span><span class="price-item-product">{{ brilliant.price | number_format(0, ',', ' ') }} руб</span></div> #}
-                    <div class="price-panel"><span class="price-item-product">{{ brilliant.price | number_format(0, ',', ' ') }} руб</span></div>
-                    {# <div class="doc-panel"><a href="" class="doc-link">Сертификат GIA</a><img src="catalog/view/theme/bfr/image/serf.png" alt=""></div> #}
-                    {# <a href="{{ brilliant.href }}" class="main-btn">ВЫБРАТЬ</a> #}
+                      <div class="price-panel">
+                        <span class="price-item-product">{{ brilliant.price | number_format(0, ',', ' ') }} руб</span>
+                      </div>
+                    </a>
                   </div>
-                </div>
-              </a>
+                </div>              
               </div>
               
             {% endfor %}

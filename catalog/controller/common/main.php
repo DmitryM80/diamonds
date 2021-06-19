@@ -37,8 +37,6 @@ class ControllerCommonMain extends Controller {
 			'order'              => $order
 		);
 
-
-		// $brilliants = $this->model_catalog_product->getProducts(array('filter_category_id' => 59));
 		$brilliants = $this->model_catalog_product->getProducts($filter_data);
 		$data['brilliants'] = array();
 
@@ -58,25 +56,25 @@ class ControllerCommonMain extends Controller {
 		$data['sorts'][] = array(
 			'text'  => $this->language->get('text_price_asc'),
 			'value' => 'p.price-ASC',
-			'href'  => $this->url->link('common/home', '&sort=p.price&order=ASC' . $url)
+			'href'  => $this->url->link('common/main', '&sort=p.price&order=ASC' . $url)
 		);
 
 		$data['sorts'][] = array(
 			'text'  => $this->language->get('text_price_desc'),
 			'value' => 'p.price-DESC',
-			'href'  => $this->url->link('common/home', '&sort=p.price&order=DESC' . $url)
+			'href'  => $this->url->link('common/main', '&sort=p.price&order=DESC' . $url)
 		);
 
 		$data['sorts'][] = array(
 			'text'  => $this->language->get('text_weight_asc'),
 			'value' => 'p.weight-ASC',
-			'href'  => $this->url->link('common/home', '&sort=p.weight&order=ASC' . $url)
+			'href'  => $this->url->link('common/main', '&sort=p.weight&order=ASC' . $url)
 		);
 
 		$data['sorts'][] = array(
 			'text'  => $this->language->get('text_weight_desc'),
 			'value' => 'p.weight-DESC',
-			'href'  => $this->url->link('common/home', '&sort=p.weight&order=DESC' . $url)
+			'href'  => $this->url->link('common/main', '&sort=p.weight&order=DESC' . $url)
 		);
 		
 

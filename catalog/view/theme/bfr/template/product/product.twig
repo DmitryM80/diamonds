@@ -81,7 +81,7 @@
                     <div class="product-title">
                       <a href="{{ href }}">{{ heading_title | replace({"ct" : ""}) }} <span class="lower-ct">ct</span> </a>
                     </div>
-                    <div class="like-btn"><a href=""><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></a></div>
+                    <div class="like-btn" onclick="wishlist.add('{{ product_id }}');"><img src="catalog/view/theme/bfr/image/like-btn.png" alt=""></div>
                   </div>
                   <div class="card-body info-panel d-flex justify-content-beetwen"> 
                     <div class="col-6 p-0">
